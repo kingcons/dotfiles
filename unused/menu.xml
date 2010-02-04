@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu>
+  <menu id="root-menu" label="OpenBox 3">
+    <item label="File Manager"> <action name="Execute">
+	<execute>thunar</execute>
+    </action></item>
+    <item label="Music Player"> <action name="Execute">
+	<execute>sonata</execute>
+    </action></item>
+    <item label="Terminal"> <action name="Execute">
+	<execute>urxvt</execute>
+    </action></item>
+    <item label="Text Editor"> <action name="Execute">
+	<execute>emacs</execute>
+    </action></item>
+    <item label="Virtualbox"> <action name="Execute">
+	<execute>VirtualBox</execute>
+    </action></item>
+    <item label="Web Browser"> <action name="Execute">
+	<execute>firefox</execute>
+    </action></item>
+    <separator/>
+    <menu id="0" label="Programs">
+      <menu id="1" label="Development">
+	<item label="DrScheme"> <action name="Execute">
+	    <execute>drscheme</execute>
+	</action> </item>
+	<item label="Emacs Nox"> <action name="Execute">
+	    <execute>urxvt -e emacs -nw</execute>
+	</action> </item>
+      </menu>
+      <menu id="2" label="Editors">
+	<item label="Nano"> <action name="Execute">
+	    <execute>urxvt -e nano</execute>
+	</action> </item>
+	<item label="Vi"> <action name="Execute">
+	    <execute>urxvt -e vi</execute>
+	</action> </item>
+      </menu>
+      <menu id="7" label="Multimedia">
+	<item label="ALSA mixer"> <action name="Execute">
+	    <execute>xterm -e alsamixer</execute>
+	</action> </item>
+	<item label="Asunder"> <action name="Execute">
+	    <execute>asunder</execute>
+	</action> </item>
+	<item label="Mirage"> <action name="Execute">
+	    <execute>mirage</execute>
+	</action> </item>
+	<item label="ncmpc"> <action name="Execute">
+	    <execute>urxvt -e ncmpc</execute>
+	</action></item>
+	<item label="Sonata"> <action name="Execute">
+	    <execute>sonata</execute>
+	</action> </item>
+	<item label="Smplayer"> <action name="Execute">
+	    <execute>smplayer</execute>
+	</action> </item>
+	<item label="Xfburn"> <action name="Execute">
+	    <execute>xfburn</execute>
+	</action></item>
+      </menu>
+      <menu id="5" label="Network">
+	<item label="Finch IM"> <action name="Execute">
+	    <execute>urxvt -e finch</execute>
+	    </action></item>
+	<item label="Firefox"> <action name="Execute">
+	    <execute>firefox</execute>
+	</action> </item>
+	<item label="Nzbget"> <action name="Execute">
+	    <execute>urxvt -e nzbget</execute>
+	</action> </item>
+	<item label="Pidgin IM"> <action name="Execute">
+	    <execute>pidgin</execute>
+	</action> </item>
+	<item label="rtorrent"> <action name="Execute">
+	    <execute>urxvt -e rtorrent</execute>
+	</action></item>
+	<item label="Wicd"> <action name="Execute">
+	    <execute>/usr/lib/wicd/gui.py</execute>
+	</action> </item>
+      </menu>
+      <menu id="3" label="Office">
+	<item label="ePDFViewer"> <action name="Execute">
+	    <execute>epdfview</execute>
+	</action> </item>
+	<item label="Gtypist"> <action name="Execute">
+	    <execute>urxvt -e gtypist</execute>
+	</action> </item>
+	<item label="xchm"> <action name="Execute">
+	    <execute>xchm</execute>
+	</action> </item>
+      </menu>
+      <menu id="19" label="Shells">
+	<item label="Dash"> <action name="Execute">
+	    <execute>xterm -e dash -i</execute>
+	</action> </item>
+	<item label="rxvt-unicode"> <action name="Execute">
+	    <execute>urxvt</execute>
+	</action> </item>
+	<item label="Xterm"> <action name="Execute">
+	    <execute>xterm</execute>
+	</action> </item>
+	<item label="XTerm (Unicode)"> <action name="Execute">
+	    <execute>uxterm</execute>
+	</action> </item>
+      </menu>
+      <menu id="36" label="Settings">
+	<menu id="35" label="Xfce">
+	  <item label="Removable Drives and Media"> <action name="Execute">
+	      <execute>/usr/lib/xfce4/thunar-volman-settings</execute>
+	  </action> </item>
+	  <item label="Xfce 4 Preferred Applications"> <action name="Execute">
+	      <execute>exo-preferred-applications</execute>
+	  </action> </item>
+	</menu>
+	<item label="Openbox Configuration Manager"> <action name="Execute">
+	    <execute>obconf</execute>
+	</action> </item>
+	<item label="ScreenSaver Preferences"> <action name="Execute">
+	    <execute>xscreensaver-command -prefs</execute>
+	</action> </item>
+      </menu>
+      <menu id="37" label="System">
+  	<item label="Bulk Rename"> <action name="Execute">
+	    <execute>/usr/lib/xfce4/ThunarBulkRename</execute>
+	</action> </item>
+	<item label="gparted"> <action name="execute">
+	    <execute>sudo gparted</execute>
+	</action> </item>
+	<item label="htop"> <action name="Execute">
+	    <execute>urxvt -e htop</execute>
+	</action> </item>
+	<item label="iotop"> <action name="Execute">
+	    <execute>urxvt -e iotop</execute>
+	</action> </item>
+	<item label="powertop"> <action name="Execute">
+	    <execute>urxvt -e powertop</execute>
+	</action> </item>
+	<item label="pstree"> <action name="Execute">
+	    <execute>xterm -e pstree</execute>
+	</action> </item>
+	<item label="Squeeze"> <action name="Execute">
+	    <execute>squeeze</execute>
+	</action> </item>
+	<item label="Top"> <action name="Execute">
+	    <execute>xterm -e top</execute>
+	</action> </item>
+      </menu>
+    </menu>
+    <separator/>
+    <menu id="41" label="Places">
+      <item label="Desktop"> <action name="Execute">
+	  <execute>thunar ~/Desktop</execute>
+      </action></item>
+    </menu>		
+    <separator/>
+    <menu id="40" label="OpenBox">
+      <menu id="client-list-menu"/>
+      <item label="Edit Menu.xml"> <action name="Execute">
+	  <execute>xterm -e nano ~/.config/openbox/menu.xml</execute>
+      </action></item>
+      <item label="Edit RC.xml"> <action name="Execute">
+	  <execute>xterm -e nano ~/.config/openbox/rc.xml</execute>
+      </action></item>
+      <item label="Lock Screen"> <action name="Execute">
+	  <execute>xscreensaver-command -lock</execute>
+      </action></item>
+      <item label="Randomize Wallpaper"> <action name="Execute">
+	  <execute>~/scripts/wallpaper.sh</execute>
+      </action></item>
+      <item label="Take Screenshot"> <action name="Execute">
+	  <execute>scrot -d 5</execute>
+      </action></item>
+      <separator/>
+      <item label="Restart Openbox"> <action name="Restart"/> </item>
+      <item label="Exit Openbox"> <action name="Exit"/> </item>
+    </menu>
+    <separator/>
+    <item label="Suspend"> <action name="Execute">
+	<execute>sudo pm-suspend</execute>
+    </action></item>
+    <item label="Reboot"> <action name="Execute">
+	<execute>sudo reboot</execute>
+    </action></item>
+    <item label="Shutdown"> <action name="Execute">
+        <execute>sudo halt</execute>
+    </action></item>
+  </menu>
+</openbox_menu>
+    
