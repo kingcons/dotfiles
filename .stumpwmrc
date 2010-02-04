@@ -1,0 +1,121 @@
+;; .stumpwmrc
+
+;; TODO:
+;; Use amixer?
+;; Add googlers or wikiers functions?
+;; Set prefix key to Alt-Shift or Super? Single key?
+
+(in-package :stumpwm)
+
+;; Load Swank so we can connect with SLIME
+(load "/usr/share/emacs/site-lisp/slime/swank-loader.lisp")
+(swank-loader:init)
+(defvar *swank-p* nil)
+
+;; Define swank command to start swank server on port 4005
+(defcommand swank () ()
+  "Starts a swank server on port 4005 and notifies the user."
+  ;(setf stumpwm:*top-level-error-action* :break)
+  (if *swank-p*
+      (message "Swank server already running.")
+      (progn
+	(swank:create-server :port 4005
+			     :style swank:*communication-style*
+			     :dont-close t)
+	(setf *swank-p* t)
+	(message "Starting swank on port 4005."))))
+
+;; Define fix-layout command to resize everything when I dock and undock
+(defcommand fix-layout () ()
+  "Fix layout calls redisplay on all windows.
+For use whenever I dock and undock switching screens."
+  (let ((groups (screen-groups (current-screen)))
+	(present-group (current-group))
+	(present-window (window-number (current-window))))
+    (loop for group in groups do
+      (gselect group)
+      (loop for window in (group-windows group) do
+	(select-window-by-number (window-number window))
+	(redisplay)))
+    (gselect present-group)
+    (select-window-by-number present-window)))
+
+;; Set contribs directory and load a few
+(set-contrib-dir "/usr/share/stumpwm")
+(mapcar #'load-module '("cpu" "mem" "net" "battery-portable"))
+
+;; Add status bar
+(setf *mode-line-background-color* "Black"
+      *mode-line-foreground-color* "white"
+      *mode-line-border-color*     "red"
+      *mode-line-timeout*          1
+      *mode-line-screen-position*  :top)
+
+(setf *screen-mode-line-format*
+      (list "%g | %c %M %l BAT: %B"))
+
+;; And turn it on
+(when (not (head-mode-line (current-head)))
+  (toggle-mode-line (current-screen) (current-head)))
+
+;; Add hooks so I get notified when people say my name on IRC or IM me
+(defun echo-urgent-window (target)
+  (message-no-timeout "~a has an message for you." (window-title target)))
+(add-hook *urgent-window-hook* 'echo-urgent-window)
+
+;; Variables
+(set-prefix-key (kbd "C-i"))
+(setf *mouse-focus-policy* :click)
+(setf *startup-message* "So high, so low, so many things to know.")
+
+;; Set up "Virtual Desktops" mapped to Alt-1 through Alt-0
+(setf *group-format* "%n")
+(run-commands "gselect 1" "grename 1")
+(loop for i from 1 to 9 do
+  (unless (= i 1) ; Group 1 is the Default group and already created.
+    (gnewbg (format nil "~d" i)))
+  (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
+(loop for i in '((1 . "#") (2 . "@") (3 . "#") (4 . "$") (5 . "%")
+      	       	 (6 . "^") (7 . "&") (8 . "*") (9 . "(")) do
+  (define-key *top-map* (kbd (format nil "M-~a" (cdr i))) (format nil "gmove ~a" (car i))))
+
+;; Global keybindings
+(define-key *top-map* (kbd "M-TAB") "next")
+(define-key *top-map* (kbd "M-RET") "eval")
+
+;; Wipe *root-map* and add prefixed keybindings, mostly programs
+(setf *root-map* (make-sparse-keymap))
+(let ((exec-bindings
+       '(("w" . "chromium") ; web browser
+	 ;("w" . "firefox")
+	 ("m" . "smplayer") ; movie player
+	 ("r" . "gmrun") ; run
+	 ("e" . "emacs") ; editor
+	 ("l" . "f") ; factorlang
+	 ("t" . "urxvt") ; terminal
+	 ;("s" . "urxvt -e ~/builds/bin/shuffletron")
+         ("s" . "quodlibet") ; song player
+	 ("p" . "scrot -d 5 '%Y-%m-%d.png' -e 'mv $f ~/images/screenshots/'") ; print screen
+	 ("b" . "~/builds/bin/randomfile -p ~/images/wallpapers") ; background setter
+	 ("f" . "thunar") ; file manager
+	 ("i" . "pidgin") ; Instant Messenger/IRC
+	 ("n" . "urxvt -e /usr/bin/wicd-curses") ; networking configuration
+	 ("v" . "VirtualBox"))) ; virtual machines
+      (func-bindings
+       '(("C-s" . "swank")
+	 ("C-l" . "loadrc")
+	 ("C-w" . "delete")
+	 ("C-h" . "hsplit")
+	 ("C-v" . "vsplit")
+	 ("C-r" . "remove-split")
+	 ("C-d" . "echo-date")
+	 ("C-f" . "fix-layout")
+	 ("C-q" . "quit"))))
+  (loop for key-prog-pair in exec-bindings do
+    (define-key *root-map*
+      (kbd (car key-prog-pair))
+      (concatenate 'string "exec " (cdr key-prog-pair))))
+  (loop for key-func-pair in func-bindings do
+    (define-key *root-map*
+      (kbd (car key-func-pair))
+      (cdr key-func-pair))))

@@ -1,0 +1,15 @@
+Xft.dpi: 100
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.rgba: rgb
+
+xterm*faceName: terminus-font
+xterm*faceSize: 8
+
+urxvt.font: xft:inconsolata:pixelsize=14
+urxvt.termName: rxvt
+urxvt.scrollBar: false
+urxvt.xftAntialias: true
+
+emacs.font: Inconsolata-12

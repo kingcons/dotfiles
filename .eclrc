@@ -1,0 +1,7 @@
+(require 'asdf)
+(setf asdf:*central-registry* '("/home/redline/builds/clbuild-dev/systems/" *default-pathname-defaults*))
+
+(defmacro full-build (system &body body)
+  `(asdf:make-build ,system :type :program :monolithic t
+                    :epilogue-code ',@body))
+
