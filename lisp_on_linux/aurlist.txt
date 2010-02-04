@@ -1,0 +1,11 @@
+ccl-bin
+ecl-unicode
+mpdscribble
+stumpwm-git, clx, cl-ppcre
+gitserve-python
+evince-gtk
+virtualbox_bin
+factor-git
+possibly emacs-elim to replace pidgin, depends on aur package libpurple
+possibly haskell-platform.
+next version: IF clojure, swank-clojure-git, emacs-clojure-mode-git, THEN openjdk6
