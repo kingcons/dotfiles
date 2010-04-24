@@ -88,17 +88,17 @@ For use whenever I dock and undock switching screens."
 (let ((exec-bindings
        '(("w" . "chromium") ; web browser
 	 ;("w" . "firefox")
-	 ("m" . "smplayer") ; movie player
+	 ;("m" . "smplayer") ; movie player
 	 ("r" . "gmrun") ; run
 	 ("e" . "emacs") ; editor
 	 ("l" . "f") ; factorlang
 	 ("t" . "urxvt") ; terminal
 	 ;("s" . "urxvt -e ~/builds/bin/shuffletron")
-         ("s" . "quodlibet") ; song player
-	 ("p" . "scrot -d 5 '%Y-%m-%d.png' -e 'mv $f ~/images/screenshots/'") ; print screen
+         ("m" . "songbird") ; song player
+	 ("s" . "scrot -d 5 '%Y-%m-%d.png' -e 'mv $f ~/images/screenshots/'") ; print screen
 	 ("b" . "~/builds/bin/randomfile -p ~/images/wallpapers") ; background setter
 	 ("f" . "thunar") ; file manager
-	 ("i" . "pidgin") ; Instant Messenger/IRC
+	 ("p" . "pidgin") ; Instant Messenger/IRC
 	 ("n" . "urxvt -e /usr/bin/wicd-curses") ; networking configuration
 	 ("v" . "VirtualBox"))) ; virtual machines
       (func-bindings
