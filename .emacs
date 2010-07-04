@@ -44,7 +44,7 @@
 	  (lambda ()
 	    (local-unset-key ",")
 	    (local-set-key "\M-," 'slime-handle-repl-shortcut)
-	    (setq slime-complete-symbol*-fancy t)))
+            (setq slime-complete-symbol*-fancy t)))
 (slime-require :swank-listener-hooks)
 
 ;; I've got the HyperSpec locally, why aren't I using it?
@@ -98,7 +98,7 @@
 ;; Htmlize, just because it's handy
 (load "/home/redline/builds/emacs-bits/htmlize.el")
 
-(add-to-list 'load-path "/home/redline/builds/magit")
+(add-to-list 'load-path "/home/redline/builds/emacs-bits/magit")
 (require 'magit)
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/clojure-mode")

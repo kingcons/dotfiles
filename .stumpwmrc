@@ -75,9 +75,9 @@ For use whenever I dock and undock switching screens."
   (unless (= i 1) ; Group 1 is the Default group and already created.
     (gnewbg (format nil "~d" i)))
   (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
-(loop for i in '((1 . "!") (2 . "@") (3 . "#") (4 . "$") (5 . "%")
-      	       	 (6 . "^") (7 . "&") (8 . "*") (9 . "(")) do
-  (define-key *top-map* (kbd (format nil "M-~a" (cdr i))) (format nil "gmove ~a" (car i))))
+(loop for (unshifted . shifted) in '((1 . "!") (2 . "@") (3 . "#") (4 . "$") (5 . "%")
+                                     (6 . "^") (7 . "&") (8 . "*") (9 . "(")) do
+   (define-key *top-map* (kbd (format nil "M-~a" shifted)) (format nil "gmove ~a" unshifted)))
 
 ;; Global keybindings
 (define-key *top-map* (kbd "M-TAB") "next")
@@ -111,11 +111,7 @@ For use whenever I dock and undock switching screens."
 	 ("C-d" . "echo-date")
 	 ("C-f" . "fix-layout")
 	 ("C-q" . "quit"))))
-  (loop for key-prog-pair in exec-bindings do
-    (define-key *root-map*
-      (kbd (car key-prog-pair))
-      (concatenate 'string "exec " (cdr key-prog-pair))))
-  (loop for key-func-pair in func-bindings do
-    (define-key *root-map*
-      (kbd (car key-func-pair))
-      (cdr key-func-pair))))
+  (loop for (key . program) in exec-bindings do
+    (define-key *root-map* (kbd key) (concatenate 'string "exec " program)))
+  (loop for (key . function) in func-bindings do
+    (define-key *root-map* (kbd key) function)))

@@ -69,3 +69,7 @@ mpg123
 rlwrap
 scrot
 libsndfile
+openntpd
+ushare
+vorbis-tools
+guile

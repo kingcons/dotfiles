@@ -96,3 +96,6 @@ clang
 evince
 strace
 words
+ushare
+vorbis-tools
+
