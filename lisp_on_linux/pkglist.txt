@@ -39,7 +39,6 @@ pidgin
 sbcl
 xscreensaver
 rxvt-unicode
-mplayer
 smplayer
 wicd
 perl-libwww
@@ -73,3 +72,7 @@ openntpd
 ushare
 vorbis-tools
 guile
+chicken
+ocaml
+openjdk6
+gdb

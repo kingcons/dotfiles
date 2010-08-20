@@ -91,7 +91,7 @@ For use whenever I dock and undock switching screens."
 	 ;("m" . "smplayer") ; movie player
 	 ("r" . "gmrun") ; run
 	 ("e" . "emacs") ; editor
-	 ("l" . "f") ; factorlang
+	 ("l" . "factor-vm") ; factorlang
 	 ("t" . "urxvt") ; terminal
          ("h" . "urxvt -cd /home/redline/builds/clbuild-dev/source/shuffletron/ -e ./shuffletron")
          ("m" . "songbird") ; song player
