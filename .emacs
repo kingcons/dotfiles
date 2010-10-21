@@ -40,9 +40,9 @@
 (color-theme-dark-bliss)
 
 ;; Ocaml stuff
-(setq auto-mode-alist (cons '("\\.ml[iylp]?\\'" . tuareg-mode) auto-mode-alist))
-(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
-(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
+;; (setq auto-mode-alist (cons '("\\.ml[iylp]?\\'" . tuareg-mode) auto-mode-alist))
+;; (autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
+;; (autoload 'camldebug "camldebug" "Run the Caml debugger" t)
 
 ;; Factor stuff
 (load-file "/usr/lib/factor/misc/fuel/fu.el")
@@ -50,6 +50,50 @@
  '(fuel-listener-factor-binary "/usr/bin/f-bin")
  '(fuel-listener-factor-image "/home/redline/.factor/factor.image")
  '(indent-tabs-mode nil))
+
+;;; Common Lisp Stuff
+;; Who doesn't love Quicklisp?
+(load (expand-file-name "/media/redlinux/home/redline/Desktop/quicklisp/slime-helper.el"))
+; C-u M-x slime will prompt you for what lisp implementation to use.
+(setq slime-lisp-implementations
+  '((ccl  ("ccl64"))
+    (ecl  ("ecl"))
+    (sbcl ("sbcl"))
+    (sbcl-git ("/home/redline/builds/clbuild-dev/clbuild" "lisp"))))
+(setq slime-default-lisp 'sbcl)
+(setq inhibit-splash-screen t)
+(require 'slime)
+(setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+(setq slime-use-autodoc-mode t)
+(slime-setup '(slime-asdf
+	       slime-autodoc
+	       slime-c-p-c
+	       slime-editing-commands
+               slime-fancy
+	       slime-fancy-inspector
+	       slime-fontifying-fu
+	       slime-fuzzy
+	       slime-indentation
+	       ;slime-mdot-fu ;;warning - this junk is deprecated! are any of the others?
+	       slime-package-fu
+	       slime-references
+	       slime-repl
+	       slime-sbcl-exts
+	       slime-scratch
+	       slime-tramp
+	       slime-xref-browser))
+(slime-fuzzy-init)
+(slime-scratch-init)
+(slime-references-init)
+; (slime-mdot-fu-init) ;;warning - this junk is deprecated!
+(slime-indentation-init)
+(slime-fontifying-fu-init)
+(add-hook 'slime-repl-mode-hook
+	  (lambda ()
+	    (local-unset-key ",")
+	    (local-set-key "\M-," 'slime-handle-repl-shortcut)
+            (setq slime-complete-symbol*-fancy t)))
+(slime-require :swank-listener-hooks)
 
 ;; Clojure stuff
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/clojure-mode")
@@ -70,56 +114,6 @@
      (aput 'slime-lisp-implementations 'clojure
            (list (swank-clojure-cmd) :init 'swank-clojure-init))))
 
-;; Common Lisp Stuff
-; C-u M-x slime will prompt you for what lisp implementation to use.
-(setq slime-lisp-implementations
-  '((ccl  ("ccl64"))
-    (ecl  ("ecl"))
-    (sbcl ("sbcl"))
-    (sbcl-git ("/home/redline/builds/clbuild-dev/clbuild" "lisp"))))
-(setq slime-default-lisp 'sbcl-git)
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime/")
-(add-to-list 'load-path "/usr/share/emacs/site-list/slime/contrib/")
-; Stick to Arch's slime-cvs package because M-. wasn't working with clbuild slime for some reason...
-; and I'm lazy
-;(add-to-list 'load-path "/home/redline/builds/clbuild-dev/source/slime")
-;(add-to-list 'load-path "/home/redline/builds/clbuild-dev/source/slime/contrib")
-;(setq slime-backend "/home/redline/builds/clbuild-dev/.swank-loader.lisp")
-;(load "/home/redline/builds/clbuild-dev/source/slime/slime.el")
-(setq inhibit-splash-screen t)
-(require 'slime)
-(setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
-(setq slime-use-autodoc-mode t)
-(slime-setup '(slime-asdf
-	       slime-autodoc
-	       slime-c-p-c
-	       slime-editing-commands
-               slime-fancy
-	       slime-fancy-inspector
-	       slime-fontifying-fu
-	       slime-fuzzy
-	       slime-indentation
-	       slime-mdot-fu
-	       slime-package-fu
-	       slime-references
-	       slime-repl
-	       slime-sbcl-exts
-	       slime-scratch
-	       slime-tramp
-	       slime-xref-browser))
-(slime-fuzzy-init)
-(slime-scratch-init)
-(slime-references-init)
-(slime-mdot-fu-init)
-(slime-indentation-init)
-(slime-fontifying-fu-init)
-(add-hook 'slime-repl-mode-hook
-	  (lambda ()
-	    (local-unset-key ",")
-	    (local-set-key "\M-," 'slime-handle-repl-shortcut)
-            (setq slime-complete-symbol*-fancy t)))
-(slime-require :swank-listener-hooks)
-
 ;; I've got the HyperSpec locally, why aren't I using it?
 (setq common-lisp-hyperspec-root "/home/redline/builds/HyperSpec/")
 
@@ -127,3 +121,23 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.asd$" . lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+
+;; Paredit
+(load "/home/redline/builds/emacs-bits/paredit.el")
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+;; (add-hook 'emacs-lisp-mode-hook
+;;           (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-mode-hook
+;;           (lambda () (paredit-mode +1)))
+;; (add-hook 'lisp-interaction-mode-hook
+;;           (lambda () (paredit-mode +1)))
+;; (add-hook 'slime-repl-mode-hook
+;;           (lambda () (paredit-mode +1)))
+
+          ;; Stop SLIME's REPL from grabbing DEL,
+          ;; which is annoying when backspacing over a '('
+;          (defun override-slime-repl-bindings-with-paredit ()
+;            (define-key slime-repl-mode-map
+;                (read-kbd-macro paredit-backward-delete-key) nil))
+;                (add-hook 'slime-repl-mode-hook 'override-slime-repl-bindings-with-paredit)
