@@ -1,3 +1,11 @@
 [ui]
 username = Brit Butler
 editor = emacs -nw -q
+
+[hooks]
+## Stolen from Bryan O'Sullivan. Thanks BOS!
+post-push = python:/home/redline/scripts/github_mirror.py:post_push
+
+## Now we can just add a github = git+ssh://git@github.com/redline/...
+## entry under [paths] in any hg repo and it will get mirrored for us!
+## And don't forget about default or default-push either!
