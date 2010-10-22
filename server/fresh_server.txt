@@ -9,13 +9,16 @@ pacman -S `cat pkglist.txt`
 wget http://redlinernotes.com/docs/server/configs.tar.gz
 tar -zxvf configs.tar.gz
 mv configs/* ~/
-sudo mv ~/etc/* /etc/*
-5. "curl -O http://beta.quicklisp.org/quicklisp.lisp" then run "sbcl --load quicklisp.lisp" and follow the instructions to get quicklisp installed. Be sure to "(ql:add-to-init-file)" and "(ql:quickload "quicklisp-slime-helper")" and tweak .emacs appropriately.
+sudo mv etc/* /etc/*
+Then add postgresql and lighttpd to the daemons array in rc.conf.
+Transfer over private keys.
+## There still may be stuff missing from these configs.
+## i.e. scripts/* or forgotten stuff in /etc or elsewhere...
+5. "curl -O http://beta.quicklisp.org/quicklisp.lisp" then run "sbcl --load quicklisp.lisp" and follow the instructions to get quicklisp installed. Finally, run (ql:quickload "quicklisp-slime-helper").
 6. mkdir -p ~/builds/paktahn and cd into it. Then wget the pkgbuild and supporting files for paktahn and run makepkg -s. Build it and pacman -U paktahn*.pkg.*
 7. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
 8. Run the following commands:
 cd ~
 wget http://redlinernotes.com/docs/server/aurlist.txt
 paktahn -S `cat aurlist.txt`
-9. Add halt and reboot to /etc/sudoers.
-10. DONE!
+9. DONE!
