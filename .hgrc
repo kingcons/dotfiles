@@ -5,7 +5,8 @@ editor = emacs -nw -q
 [extensions]
 hgext.bookmarks =
 hggit =
-
+transplant =
+	
 [hooks]
 ## Stolen from Bryan O'Sullivan. Thanks BOS!
 post-push = python:/home/redline/scripts/github_mirror.py:post_push
