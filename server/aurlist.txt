@@ -3,3 +3,4 @@ leiningen
 apache-tools
 emacs-clojure-mode-git
 swank-clojure-git
+hg-git-hg
