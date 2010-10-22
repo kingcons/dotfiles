@@ -1,6 +1,5 @@
 ccl-bin
 leiningen
 apache-tools
-
-
-
+emacs-clojure-mode-git
+swank-clojure-git

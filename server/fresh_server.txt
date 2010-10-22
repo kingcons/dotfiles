@@ -9,7 +9,12 @@ pacman -S `cat pkglist.txt`
 wget http://redlinernotes.com/docs/server/configs.tar.gz
 tar -zxvf configs.tar.gz
 mv configs/* ~/
+mv configs/.[^.]* ~/
 sudo mv etc/* /etc/*
+sudo mv etc/lighttpd/* /etc/lighttpd/
+rm -R etc/
+rm -R configs/
+rm configs.tar.gz
 Then add postgresql and lighttpd to the daemons array in rc.conf.
 Transfer over private keys.
 ## There still may be stuff missing from these configs.

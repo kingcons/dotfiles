@@ -7,7 +7,6 @@ unrar
 bzip2
 p7zip
 emacs
-emacs-color-theme
 terminus-font
 ttf-inconsolata
 ttf-bitstream-vera
