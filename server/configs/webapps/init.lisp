@@ -4,7 +4,7 @@
 ;; This is fragile and unfortunate and will need to change.
 ;; Right now it makes my life easier because it was trying to load, I think, clojure-swank
 ;; from /usr/share/emacs/site-lisp as installed from AUR and failing pretty hard.
-(push "/home/redline/quicklisp/dists/quicklisp/slime-20101006-cvs/" asdf:*central-registry*)
+(push "/home/redline/quicklisp/dists/quicklisp/software/slime-20101006-cvs/" asdf:*central-registry*)
 
 (ql:quickload '(clockwork swank))
 
