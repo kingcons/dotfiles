@@ -10,11 +10,11 @@ alias booksync='rsync -rvzu --delete ~/docs/books/ /media/disk/books/'
 alias nexusync='musync && booksync'
 alias rootwasters='du -hxs /*'
 alias spacewasters='du -hx ~ | sort -h | tail -n 20'
-alias clbuild='/home/redline/builds/clbuild-dev/clbuild'
 alias theusual='sudo pacman -Syu && pak -Su --aur && sudo pacman -Scc && df -h'
 alias sshproxy='ssh -ND 6561 redlinernotes.com'
 alias gothrust='ssh 109.169.54.131'
 alias golinode='ssh 74.207.227.162'
+alias webslime='screen -dR'
 
 stty -ixon
 export EDITOR='emacs -nw'
