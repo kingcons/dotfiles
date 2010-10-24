@@ -1,8 +1,13 @@
 (push "/home/redline/projects/clockwork/" asdf:*central-registry*)
+(push "/home/redline/projects/weblocks-dev/" asdf:*central-registry*)
 
-(require 'clockwork)
+;; This is fragile and unfortunate and will need to change.
+;; Right now it makes my life easier because it was trying to load, I think, clojure-swank
+;; from /usr/share/emacs/site-lisp as installed from AUR and failing pretty hard.
+(push "/home/redline/quicklisp/dists/quicklisp/slime-20101006-cvs/" asdf:*central-registry*)
 
-(require 'swank)
+(ql:quickload '(clockwork swank))
+
 (setf swank-loader::*contribs* '(swank-c-p-c swank-arglists
 				 swank-fuzzy swank-fancy-inspector
 				 swank-package-fu))

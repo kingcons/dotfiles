@@ -16,9 +16,11 @@ rm -R etc/
 rm -R configs/
 rm configs.tar.gz
 Then add postgresql and lighttpd to the daemons array in rc.conf.
+Also follow the instructions on Archwiki to get postgres setup/configured.
 Transfer over private keys.
 ## There still may be stuff missing from these configs.
 ## i.e. scripts/* or forgotten stuff in /etc or elsewhere...
+## 5. Keep installing clbuild for now. It's nice for personal projects. mkdir ~/builds && cd ~/builds && darcs get http://common-lisp.net/project/clbuild/clbuild
 5. "curl -O http://beta.quicklisp.org/quicklisp.lisp" then run "sbcl --load quicklisp.lisp" and follow the instructions to get quicklisp installed. Finally, run (ql:quickload "quicklisp-slime-helper").
 6. mkdir -p ~/builds/paktahn and cd into it. Then wget the pkgbuild and supporting files for paktahn and run makepkg -s. Build it and pacman -U paktahn*.pkg.*
 7. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
