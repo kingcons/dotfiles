@@ -19,6 +19,6 @@
 (in-package :clockwork)
 (start-clockwork :port 4242)
 
-;; probably should be split into init.lisp or main.lisp in mtg/src/...
-;(in-package :mtg)
-;(load-data)
+;; These will be able to disappear when form-widget leaves contrib.
+(load "/home/redline/projects/weblocks-dev/contrib/lpolzer/define-class.lisp")
+(load "/home/redline/projects/weblocks-dev/contrib/lpolzer/form-widget.lisp")
