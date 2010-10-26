@@ -1,5 +1,7 @@
-(push "/home/redline/projects/clockwork/" asdf:*central-registry*)
-(push "/home/redline/projects/weblocks-dev/" asdf:*central-registry*)
+;; We have to manually symlink our personal and bleeding-edge stuff this way...
+;; but that's better for now than clbuild in addition to quicklisp or pushing
+;; a ton of paths onto the central registry.
+(push "/home/redline/projects/systems/" asdf:*central-registry*)
 
 ;; This is fragile and unfortunate and will need to change.
 ;; Right now it makes my life easier because it was trying to load, I think, clojure-swank
@@ -7,6 +9,9 @@
 (push "/home/redline/quicklisp/dists/quicklisp/software/slime-20101006-cvs/" asdf:*central-registry*)
 
 (ql:quickload '(clockwork swank))
+
+;; This will be able to disappear when form-widget leaves contrib.
+(load "/home/redline/projects/weblocks-dev/contrib/lpolzer/form-widget.lisp")
 
 (setf swank-loader::*contribs* '(swank-c-p-c swank-arglists
 				 swank-fuzzy swank-fancy-inspector
@@ -18,7 +23,3 @@
 
 (in-package :clockwork)
 (start-clockwork :port 4242)
-
-;; These will be able to disappear when form-widget leaves contrib.
-(load "/home/redline/projects/weblocks-dev/contrib/lpolzer/define-class.lisp")
-(load "/home/redline/projects/weblocks-dev/contrib/lpolzer/form-widget.lisp")
