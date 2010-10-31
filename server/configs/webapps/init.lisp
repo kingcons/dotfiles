@@ -8,8 +8,7 @@
 ;; from /usr/share/emacs/site-lisp as installed from AUR and failing pretty hard.
 (push "/home/redline/quicklisp/dists/quicklisp/software/slime-20101006-cvs/" asdf:*central-registry*)
 
-(ql:quickload '(clockwork swank))
-
+(ql:quickload '(weblocks swank))
 ;; This will be able to disappear when form-widget leaves contrib.
 (load "/home/redline/projects/weblocks-dev/contrib/lpolzer/form-widget.lisp")
 
@@ -20,6 +19,8 @@
 (swank:create-server :dont-close t
 		     :port 4010
 		     :coding-system "utf-8-unix")
+
+(ql:quickload '(clockwork))
 
 (in-package :clockwork)
 (start-clockwork :port 4242)
