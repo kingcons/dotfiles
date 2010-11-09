@@ -41,6 +41,3 @@ openjdk6
 gdb
 clojure
 clojure-contrib
-scala
-scala-doc
-scala-src
