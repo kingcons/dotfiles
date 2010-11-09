@@ -76,3 +76,7 @@ chicken
 ocaml
 openjdk6
 gdb
+scala
+scala-doc
+scala-src
+texi2html
