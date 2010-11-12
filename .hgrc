@@ -3,9 +3,12 @@ username = Brit Butler
 editor = emacs -nw -q
 
 [extensions]
-hgext.bookmarks =
+bookmarks =
 hggit =
 transplant =
+
+[bookmarks]
+track.current = True
 	
 [hooks]
 ## Stolen from Bryan O'Sullivan. Thanks BOS!
