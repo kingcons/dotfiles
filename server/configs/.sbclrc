@@ -1,9 +1,7 @@
 (require 'asdf)
-(setf asdf:*central-registry* '("/home/redline/builds/clbuild-dev/systems/" *default-pathname-defaults*))
 
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
 (let ((quicklisp-init #p"/home/redline/quicklisp/setup.lisp"))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
-
