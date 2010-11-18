@@ -6,7 +6,7 @@ unzip
 unrar
 bzip2
 p7zip
-emacs
+emacs-nox
 terminus-font
 ttf-inconsolata
 ttf-bitstream-vera
