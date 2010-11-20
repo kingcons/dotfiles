@@ -69,7 +69,7 @@ rlwrap
 scrot
 libsndfile
 openntpd
-ushare
+mediatomb
 vorbis-tools
 guile
 chicken
