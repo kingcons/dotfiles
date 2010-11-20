@@ -93,7 +93,7 @@ For use whenever I dock and undock switching screens."
 	 ("e" . "emacs") ; editor
 	 ("l" . "factor-vm") ; factorlang
 	 ("t" . "urxvt") ; terminal
-         ("h" . "urxvt -e sbcl --eval \"(require :shuffletron)\" --eval \"(shuffletron:run)\"")
+         ("h" . "urxvt -e rlwrap sbcl --eval \"(require :shuffletron)\" --eval \"(shuffletron:run)\"")
          ("m" . "songbird") ; song player
 	 ("s" . "scrot -d 5 '%Y-%m-%d.png' -e 'mv $f ~/images/screenshots/'") ; print screen
 	 ("b" . "~/builds/bin/randomfile -p ~/images/wallpapers") ; background setter
