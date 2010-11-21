@@ -22,5 +22,5 @@
 
 (ql:quickload '(clockwork))
 
-(in-package :clockwork)
-(start-clockwork :port 4242)
+(clockwork:start-clockwork :port 4242)
+(clockwork:recover-reminders)
