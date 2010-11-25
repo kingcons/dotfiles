@@ -13,12 +13,12 @@
 (load "/home/redline/projects/weblocks-dev/contrib/lpolzer/form-widget.lisp")
 
 (setf swank-loader::*contribs* '(swank-c-p-c swank-arglists
-				 swank-fuzzy swank-fancy-inspector
-				 swank-package-fu))
+                                 swank-fuzzy swank-fancy-inspector
+                                 swank-package-fu))
 (swank-loader::loadup)
 (swank:create-server :dont-close t
-		     :port 4010
-		     :coding-system "utf-8-unix")
+                     :port 4010
+                     :coding-system "utf-8-unix")
 
 (ql:quickload '(clockwork))
 

@@ -80,3 +80,5 @@ scala
 scala-doc
 scala-src
 texi2html
+tmux
+emacs-w3m-cvs
