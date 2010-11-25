@@ -6,17 +6,18 @@ wget http://redlinernotes.com/docs/lisp_on_linux/pkglist.txt
 pacman -S `cat pkglist.txt`
 3. Add new user, enable wheel group in sudoers. Login as new user.
 4. Extract and insert default config files:
-wget http://redlinernotes.com/docs/lisp_on_linux/configs.tar.gz
-tar -zxvf configs.tar.gz
-mv configs/* ~/
-sudo mv ~/etc/* /etc/*
-5. mkdir ~/builds and git clone git://gitorious.org/~redline6561/clbuild/clbuild-dev.git. In clbuild...
-./clbuild update --all-projects
-cd source/paktahn-dev/ && sbcl
-(require 'paktahn)
-(in-package :pak)
-(build-core)
-;;; ALTERNATELY: Install paktahn binary using lpolzer's quickinstall script.
+mkdir projects, cd projects, git clone git@github.com:redline6561/dotfiles.git, cd dotfiles
+Copy stuff as needed...
+## wget http://redlinernotes.com/docs/lisp_on_linux/configs.tar.gz
+## tar -zxvf configs.tar.gz
+## mv configs/* ~/
+## sudo mv ~/etc/* /etc/*
+5. Install paktahn from AUR. Install quicklisp:
+wget -c http://beta.quicklisp.org/quicklisp.lisp
+sbcl --load quicklisp.lisp
+(quicklisp-quickstart:install)
+(ql:add-to-init-file)
+(map nil 'ql-dist:ensure-installed (ql-dist:provided-releases (ql-dist:dist "quicklisp")))
 6. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
 7. Run the following commands:
 cd ~
@@ -27,8 +28,3 @@ mv Crashbit .icons/Crashbit
 wget http://redlinernotes.com/docs/lisp_on_linux/aurlist.txt
 paktahn -S `cat aurlist.txt`
 8. Add halt, reboot and pm-suspend to /etc/sudoers.
-9. Go to ~/builds/clbuild/shuffletron, edit Makefile so PREFIX=/home/redline/builds and make, make install
-10. Hand-install any necessary larch stuff...and LARCH IT. Note: Larch only supported on 32 bit systems at this time.
-11. Test it, document stuff, test it, document stuff, larch it, update the changelog, release it! Files with guest in them: .asdf-install, .sbclrc, .eclrc, mpd.conf, etc.
-
-;; 9. Add "vboxdrv" to modules in rc.conf, add sshd hal wicd alsa @slim @mpd @openntpd to daemons. !network too, I think.
