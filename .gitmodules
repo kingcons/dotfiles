@@ -1,0 +1,7 @@
+[submodule "geiser"]
+	   path = emacs/site-lisp/geiser
+	   url = git://gitorious.org/geiser/mainline.git
+
+[submodule "magit"]
+	   path = emacs/site-lisp/magit
+	   url = git://github.com/philjackson/magit.git
