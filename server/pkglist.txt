@@ -41,3 +41,4 @@ openjdk6
 gdb
 clojure
 clojure-contrib
+python-pygments
