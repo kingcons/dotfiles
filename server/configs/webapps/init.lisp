@@ -8,7 +8,7 @@
 ;; from /usr/share/emacs/site-lisp as installed from AUR and failing pretty hard.
 (push "/home/redline/quicklisp/dists/quicklisp/software/slime-20101006-cvs/" asdf:*central-registry*)
 
-(ql:quickload '(weblocks swank))
+(ql:quickload '(weblocks-postmodern swank))
 ;; This will be able to disappear when form-widget leaves contrib.
 (load "/home/redline/projects/weblocks-dev/contrib/lpolzer/form-widget.lisp")
 
@@ -24,3 +24,4 @@
 
 (clockwork:start-clockwork :port 4242)
 (clockwork:recover-reminders)
+(setf clockwork:*clockwork-host* "")
