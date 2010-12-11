@@ -1,5 +1,4 @@
 (require 'asdf)
-(setf asdf:*central-registry* '("/home/redline/builds/clbuild-dev/systems/" *default-pathname-defaults*))
 
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
@@ -7,3 +6,4 @@
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 
+(push "/home/redline/projects/systems/" asdf:*central-registry*)

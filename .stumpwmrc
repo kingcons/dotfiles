@@ -42,7 +42,7 @@ For use whenever I dock and undock switching screens."
 
 ;; Set contribs directory and load a few
 (set-contrib-dir "/usr/share/stumpwm")
-(mapcar #'load-module '("cpu" "mem" "net" "battery-portable"))
+(mapcar #'load-module '("cpu" "mem" "net" "battery"))
 
 ;; Add status bar
 (setf *mode-line-background-color* "Black"
@@ -51,8 +51,7 @@ For use whenever I dock and undock switching screens."
       *mode-line-timeout*          1
       *mode-line-screen-position*  :top)
 
-(setf *screen-mode-line-format*
-      (list "%g | %c %M %l BAT: %B"))
+(setf *screen-mode-line-format* '("%g | %c %M %l %b"))
 
 ;; And turn it on
 (when (not (head-mode-line (current-head)))
@@ -93,7 +92,7 @@ For use whenever I dock and undock switching screens."
 	 ("e" . "emacs") ; editor
 	 ("l" . "factor-vm") ; factorlang
 	 ("t" . "urxvt") ; terminal
-         ("h" . "urxvt -e rlwrap sbcl --eval \"(require :shuffletron)\" --eval \"(shuffletron:run)\"")
+         ("h" . "urxvt -e rlwrap sbcl --eval \"(ql:quickload :shuffletron)\" --eval \"(shuffletron:run)\"")
          ("m" . "songbird") ; song player
 	 ("s" . "scrot -d 5 '%Y-%m-%d.png' -e 'mv $f ~/images/screenshots/'") ; print screen
 	 ("b" . "~/builds/bin/randomfile -p ~/images/wallpapers") ; background setter
