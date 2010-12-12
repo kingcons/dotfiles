@@ -43,3 +43,4 @@ clojure
 clojure-contrib
 python-pygments
 emacs-haskell-mode
+emacs-w3m-cvs
