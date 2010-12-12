@@ -6,3 +6,6 @@
 
 (add-hook 'lisp-mode-hook 'whitespace-mode)
 (add-hook 'clojure-mode-hook 'whitespace-mode)
+(add-hook 'haskell-mode-hook 'whitespace-mode)
+(add-hook 'tuareg-mode-hook 'whitespace-mode)
+(add-hook 'factor-mode-hook 'whitespace-mode)

@@ -42,3 +42,4 @@ gdb
 clojure
 clojure-contrib
 python-pygments
+emacs-haskell-mode

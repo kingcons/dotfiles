@@ -1,5 +1,12 @@
-(set-default 'auto-mode-alit
+(set-default 'auto-mode-alist
              (append '(("\\.org$" . org-mode)
                        ("\\.asd$" . lisp-mode)
-                       ("\\.clj$" . clojure-mode)))
-             auto-mode-alist)
+                       ("\\.clj$" . clojure-mode)
+                       ("\\.ml[iyl]?$" . tuareg-mode)
+                       ("\\.topml$" . tuareg-mode)
+                       (".factor" . factor-mode)
+                       ("\\.hs$" . haskell-mode)
+                       ("\\.lhs$" . literate-haskell-mode)
+                       (".stumpwmrc" . lisp-mode)
+                       )
+                     auto-mode-alist))

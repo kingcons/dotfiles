@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/emacs/site-lisp/magit")
 (require 'magit)
 
 (set-face-attribute 'magit-diff-add nil :foreground "Green")

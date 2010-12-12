@@ -1,13 +1,17 @@
 ;; Who doesn't love Quicklisp?
 (load (expand-file-name "/media/redlinux/home/redline/Desktop/quicklisp/slime-helper.el"))
+
 ; C-u M-x slime will prompt you for what lisp implementation to use.
 (setq slime-lisp-implementations
-  '((ccl  ("ccl64"))
+  '((ccl  ("ccl64" "-K utf-8"))
     (ecl  ("ecl"))
     (sbcl ("sbcl"))
     (sbcl-git ("/home/redline/builds/clbuild-dev/clbuild" "lisp"))))
 (setq slime-default-lisp 'sbcl)
 (setq inhibit-splash-screen t)
+(setq slime-net-coding-system 'utf-8-unix)
+(set-language-environment "utf-8")
+
 (require 'slime)
 (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
 (setq slime-use-autodoc-mode t)
