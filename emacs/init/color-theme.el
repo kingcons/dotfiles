@@ -24,5 +24,5 @@
      (font-lock-keyword-face ((t (:foreground "#ccffaa"))))
      (font-lock-preprocessor-face ((t (:foreground "#aaffee"))))
      (font-lock-string-face ((t (:foreground "#bbbbff")))))))
-(color-theme-dark-bliss)
-
+(when (eq window-system 'x)
+  (color-theme-dark-bliss))
