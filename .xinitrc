@@ -10,12 +10,12 @@ DEFAULT_SESSION=stumpwm
 
 case $1 in
 stumpwm)
-	exec ck-launch-session stumpwm
+	exec ck-launch-session ssh-agent stumpwm
 	;;
 twm)
-        exec ck-launch-session twm
+        exec ck-launch-session ssh-agent twm
         ;;
 *)
-	exec ck-launch-session $DEFAULT_SESSION
+	exec ck-launch-session ssh-agent $DEFAULT_SESSION
 	;;
 esac
