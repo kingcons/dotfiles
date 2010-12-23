@@ -5,7 +5,7 @@ thunar --daemon &
 emacs --daemon &
 # mpdscribble &
 ~/builds/bin/randomfile -p ~/images/wallpapers
-xset -b &
+xset b off &
 setxkbmap -option "ctrl:nocaps" &
 
 DEFAULT_SESSION=stumpwm
