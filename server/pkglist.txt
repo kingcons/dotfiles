@@ -35,8 +35,6 @@ oprofile
 words
 rlwrap
 openntpd
-vorbis-tools
-mpg123
 openjdk6
 gdb
 clojure
