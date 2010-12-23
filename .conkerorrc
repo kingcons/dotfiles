@@ -1,0 +1,47 @@
+// I *really* need browser sessions...
+(require "session.js");
+session_auto_save_auto_load = true;
+
+// I'm pretty used to this behavior. Let's keep it for now.
+(require "clicks-in-new-buffer.js");
+clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
+// but I'll start trying to jump around instead...
+define_key(content_buffer_normal_keymap, "j", "follow-new-buffer");
+
+// Well if we can't have firebug...
+// TODO: add MODI and FirebugLite here...
+
+// the default page for new buffers.
+homepage = "about:blank";
+
+// load urls from the command line in new buffers instead
+// of new windows.
+url_remoting_fn = load_url_in_new_buffer;
+
+// load download buffers in the background in the current
+// window, instead of in new windows.
+download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
+
+// display properties of the current selected node during
+// the hints interaction.
+hints_display_url_panel = true;
+
+// default directory for downloads and shell commands.
+cwd = get_home_directory();
+cwd.append("Desktop");
+
+// automatically handle some mime types internally.
+content_handlers.set("application/pdf", content_handler_save);
+
+// external programs for handling various mime types.
+external_content_handlers.set("application/pdf", "evince");
+external_content_handlers.set("video/*", "smplayer");
+
+// use emacsclient as external editor.
+editor_shell_command = "emacsclient -c";
+
+// view source in your editor.
+view_source_use_external_editor = true;
+
+// let xkcd-mode put the funny alt text into the page.
+xkcd_add_title = true;
