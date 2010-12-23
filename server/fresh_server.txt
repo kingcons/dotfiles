@@ -6,15 +6,12 @@ wget http://redlinernotes.com/docs/server/pkglist.txt
 pacman -S `cat pkglist.txt`
 3. Add new user, enable wheel group in sudoers. Login as new user.
 4. Extract and insert default config files:
-wget http://redlinernotes.com/docs/server/configs.tar.gz
-tar -zxvf configs.tar.gz
-mv configs/* ~/
-mv configs/.[^.]* ~/
-sudo mv etc/* /etc/*
-sudo mv etc/lighttpd/* /etc/lighttpd/
-rm -R etc/
-rm -R configs/
-rm configs.tar.gz
+mkdir projects; cd projects; git clone git@github.com:redline6561/dotfiles.git;
+cd dotfiles; cp server/configs/.[^.]* ~/; cp -R server/configs/scripts ~/;
+cp -R server/configs/webapps ~/; sudo cp -R server/etc/* /etc/;
+git clone git@github.com:redline6561/dotemacs.git ~/emacs;
+Reboot to test.
+5. Do some configuration work...
 Then add postgresql and lighttpd to the daemons array in rc.conf.
 You'll also want to run sudo /etc/rc.d/postgresql start, then su root,
 su - postgres, createuser -DRSP username, and createdb -O dbname as necessary.
@@ -24,8 +21,10 @@ Transfer over any private keys and you're good.
 ## There still may be stuff missing from these configs.
 ## i.e. scripts/* or forgotten stuff in /etc or elsewhere...
 ## 5. Keep installing clbuild for now. It's nice for personal projects. mkdir ~/builds && cd ~/builds && darcs get http://common-lisp.net/project/clbuild/clbuild
-5. "curl -O http://beta.quicklisp.org/quicklisp.lisp" then run "sbcl --load quicklisp.lisp" and follow the instructions to get quicklisp installed. Finally, run (ql:quickload "quicklisp-slime-helper").
-6. mkdir -p ~/builds/paktahn and cd into it. Then wget the pkgbuild and supporting files for paktahn and run makepkg -s. Build it and pacman -U paktahn*.pkg.*
+6. Install quicklisp...
+"curl -O http://beta.quicklisp.org/quicklisp.lisp" then run "sbcl --load quicklisp.lisp" and follow the instructions to get quicklisp installed. Finally, run (ql:quickload "quicklisp-slime-helper").
+6. Install paktahn...
+mkdir -p ~/builds/paktahn and cd into it. Then wget the pkgbuild and supporting files for paktahn and run makepkg -s. Build it and pacman -U paktahn*.pkg.*
 7. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
 8. Run the following commands:
 cd ~

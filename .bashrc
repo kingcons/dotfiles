@@ -1,5 +1,5 @@
 alias ls='ls --color=auto'
-alias ed='emacs -nw -q'
+alias ed='emacsclient -c'
 alias enox='emacs -nw'
 alias fixusb='sudo /sbin/udevd --daemon'
 alias mounters='lsof /media/RedStorage/'
@@ -19,7 +19,7 @@ alias golinode='ssh 74.207.227.162'
 alias gothrust='ssh 109.169.54.131'
 
 stty -ixon
-export EDITOR='emacs -nw -q'
+export EDITOR='emacsclient -c'
 export PATH=$PATH:$HOME/builds/bin
 PS1='[\u@\h \W]\$ '
 TERM=rxvt

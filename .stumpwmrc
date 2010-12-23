@@ -56,11 +56,6 @@ For use whenever I dock and undock switching screens."
 (when (not (head-mode-line (current-head)))
   (toggle-mode-line (current-screen) (current-head)))
 
-;; Add hooks so I get notified when people say my name on IRC or IM me
-(defun echo-urgent-window (target)
-  (message-no-timeout "~a has an message for you." (window-title target)))
-(add-hook *urgent-window-hook* 'echo-urgent-window)
-
 ;; Variables
 (set-prefix-key (kbd "C-i"))
 (setf *mouse-focus-policy* :click)
@@ -88,7 +83,7 @@ For use whenever I dock and undock switching screens."
          ("w" . "conkeror") ; web browser
          ("m" . "smplayer") ; movie player
          ("r" . "gmrun") ; run
-         ("e" . "emacs") ; editor
+         ("e" . "emacsclient -c") ; editor
          ("l" . "factor-vm") ; factorlang
          ("t" . "urxvt") ; terminal
          ("a" . "urxvt -e rlwrap sbcl --eval \"(ql:quickload :shuffletron)\"

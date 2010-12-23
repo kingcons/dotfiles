@@ -84,3 +84,4 @@ tmux
 emacs-w3m-cvs
 emacs-haskell-mode
 conkeror
+libnotify

@@ -13,3 +13,4 @@ emacs-tuareg-mode
 csound5
 udis86
 hg-git-hg
+emacs-jabber
