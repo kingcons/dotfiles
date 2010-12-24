@@ -11,6 +11,7 @@ cd dotfiles; cp .[^.]* ~/; cp -R lisp_on_linux/.[^.]* ~/;
 git clone git@github.com:redline6561/dotemacs.git ~/emacs;
 cd ~/emacs; git submodule update --init;
 Fix the passwords for jabber and erc.
+Grab your SSH keys from wherever you're hiding them...
 5. Install paktahn from AUR. Install quicklisp:
 wget -c http://beta.quicklisp.org/quicklisp.lisp
 sbcl --load quicklisp.lisp
