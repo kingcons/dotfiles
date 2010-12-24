@@ -1,9 +1,9 @@
 // I *really* need browser sessions...
-(require "session.js");
+require("session.js");
 session_auto_save_auto_load = true;
 
 // I'm pretty used to this behavior. Let's keep it for now.
-(require "clicks-in-new-buffer.js");
+require("clicks-in-new-buffer.js");
 clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
 // but I'll start trying to jump around instead...
 define_key(content_buffer_normal_keymap, "j", "follow-new-buffer");
