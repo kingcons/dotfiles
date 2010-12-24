@@ -41,7 +41,7 @@ For use whenever I dock and undock switching screens."
 
 ;; Set contribs directory and load a few
 (set-contrib-dir "/usr/share/stumpwm")
-(mapcar #'load-module '("cpu" "mem" "net" "battery"))
+(mapcar #'load-module '("cpu" "mem" "net" "battery" "notifications"))
 
 ;; Add status bar
 (setf *mode-line-background-color* "Black"
@@ -95,7 +95,8 @@ For use whenever I dock and undock switching screens."
          ("v" . "VirtualBox") ; virtual machines
          ("c" . "chromium")))
       (func-bindings
-       '(("C-s" . "swank")
+       '(("N" . *notifications-map*)
+         ("C-s" . "swank")
          ("C-l" . "loadrc")
          ("C-w" . "delete")
          ("C-h" . "hsplit")
