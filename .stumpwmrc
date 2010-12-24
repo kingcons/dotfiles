@@ -86,14 +86,14 @@ For use whenever I dock and undock switching screens."
          ("e" . "emacsclient -c") ; editor
          ("l" . "factor-vm") ; factorlang
          ("t" . "urxvt") ; terminal
-         ("a" . "urxvt -e rlwrap sbcl --eval \"(ql:quickload :shuffletron)\"
-                                      --eval \"(shuffletron:run)\"") ; audio player
+         ("a" . "urxvt -e rlwrap sbcl --eval \"(ql:quickload :shuffletron)\" --eval \"(shuffletron:run)\"") ; audio player
          ("s" . "scrot -d 5 '%Y-%m-%d.png' -e 'mv $f ~/images/screenshots/'") ; print screen
          ("b" . "~/builds/bin/randomfile -p ~/images/wallpapers") ; background setter
          ("f" . "thunar") ; file manager
          ("p" . "pidgin") ; Instant Messenger/IRC
          ("n" . "urxvt -e /usr/bin/wicd-curses") ; networking configuration
-         ("v" . "VirtualBox"))) ; virtual machines
+         ("v" . "VirtualBox") ; virtual machines
+         ("c" . "chromium")))
       (func-bindings
        '(("C-s" . "swank")
          ("C-l" . "loadrc")
