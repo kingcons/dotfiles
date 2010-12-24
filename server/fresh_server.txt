@@ -22,12 +22,13 @@ Transfer over any private keys and you're good.
 ## i.e. scripts/* or forgotten stuff in /etc or elsewhere...
 ## 5. Keep installing clbuild for now. It's nice for personal projects. mkdir ~/builds && cd ~/builds && darcs get http://common-lisp.net/project/clbuild/clbuild
 6. Install quicklisp...
-"curl -O http://beta.quicklisp.org/quicklisp.lisp" then run "sbcl --load quicklisp.lisp" and follow the instructions to get quicklisp installed. Finally, run (ql:quickload "quicklisp-slime-helper").
-6. Install paktahn...
-mkdir -p ~/builds/paktahn and cd into it. Then wget the pkgbuild and supporting files for paktahn and run makepkg -s. Build it and pacman -U paktahn*.pkg.*
-7. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
-8. Run the following commands:
+"curl -O http://beta.quicklisp.org/quicklisp.lisp" then run "sbcl --load quicklisp.lisp". Then run (quicklisp-quickstart:install).
+7. Install paktahn...
+mkdir -p ~/builds/paktahn and cd into it. Then wget the pkgbuild and supporting files for paktahn and run makepkg -s.
+Build it and pacman -U paktahn*.pkg.*
+9. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
+9. Run the following commands:
 cd ~
 wget http://redlinernotes.com/docs/server/aurlist.txt
 paktahn -S `cat aurlist.txt`
-9. DONE!
+10. DONE!

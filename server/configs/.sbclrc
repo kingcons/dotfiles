@@ -5,3 +5,6 @@
 (let ((quicklisp-init #p"/home/redline/quicklisp/setup.lisp"))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
+
+(push "/home/redline/projects/systems/" asdf:*central-registry*)
+(push "/home/redline/emacs/site-lisp/slime/" asdf:*central-registry*)

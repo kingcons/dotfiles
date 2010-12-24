@@ -25,7 +25,6 @@ chromium
 flashplugin
 emacs
 emacs-color-theme
-slime-cvs
 thunar
 thunar-volman
 terminus-font
@@ -82,5 +81,4 @@ scala-src
 texi2html
 tmux
 emacs-w3m-cvs
-emacs-haskell-mode
 conkeror

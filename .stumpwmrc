@@ -7,7 +7,7 @@
 (in-package :stumpwm)
 
 ;; Load Swank so we can connect with SLIME
-(load "/usr/share/emacs/site-lisp/slime/swank-loader.lisp")
+(require 'swank)
 (swank-loader:init)
 (defvar *swank-p* nil)
 
@@ -50,7 +50,15 @@ For use whenever I dock and undock switching screens."
       *mode-line-timeout*          1
       *mode-line-screen-position*  :top)
 
-(setf *screen-mode-line-format* '("%g | %c %M %l %b"))
+;; Redefine notifications mode-line to show number of messages missed, colorize it.
+(defun notifications-as-string (&rest r)
+  (declare (ignore r))
+  (let ((msg-count (length notifications)))
+    (format nil "Notifications: ~a~a"
+            (bar-zone-color (* 10 msg-count))
+            (length notifications))))
+
+(setf *screen-mode-line-format* '("%g | %c %M %l %b   %N"))
 
 ;; And turn it on
 (when (not (head-mode-line (current-head)))
@@ -96,6 +104,7 @@ For use whenever I dock and undock switching screens."
          ("c" . "chromium")))
       (func-bindings
        '(("N" . *notifications-map*)
+         ("C-n" . "messages-from") ; TODO: Write this function and make it work...
          ("C-s" . "swank")
          ("C-l" . "loadrc")
          ("C-w" . "delete")

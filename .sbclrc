@@ -7,3 +7,4 @@
     (load quicklisp-init)))
 
 (push "/home/redline/projects/systems/" asdf:*central-registry*)
+(push "/home/redline/emacs/site-lisp/slime/" asdf:*central-registry*)

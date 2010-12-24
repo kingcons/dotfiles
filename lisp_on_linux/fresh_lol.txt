@@ -14,7 +14,6 @@ Fix the passwords for jabber and erc.
 wget -c http://beta.quicklisp.org/quicklisp.lisp
 sbcl --load quicklisp.lisp
 (quicklisp-quickstart:install)
-(ql:add-to-init-file)
 (map nil 'ql-dist:ensure-installed (ql-dist:provided-releases (ql-dist:dist "quicklisp")))
 6. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
 7. Run the following commands:
@@ -26,3 +25,4 @@ mv Crashbit .icons/Crashbit
 wget http://redlinernotes.com/docs/lisp_on_linux/aurlist.txt
 paktahn -S `cat aurlist.txt`
 8. Add halt, reboot and pm-suspend to /etc/sudoers.
+9. DONE!
