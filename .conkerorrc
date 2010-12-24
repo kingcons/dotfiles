@@ -8,6 +8,22 @@ clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
 // but I'll start trying to jump around instead...
 define_key(content_buffer_normal_keymap, "j", "follow-new-buffer");
 
+// Let's also have C-r reload and C-l act like jump-to-address-bar...
+// for God's sake try to just press r to reload though.
+define_key(content_buffer_normal_keymap, "C-r", "reload");
+define_key(content_buffer_normal_keymap, "C-l", "find-alternate-url");
+
+// Why should I have to restart conkeror to reload my rc?
+// I've got like 60 tabs open here!
+interactive("rc-reload",
+            "Reload .conkerorrc",
+            // Isn't this stored in a variable somewhere? Must I hard code it?
+            function() { load_rc_file("/home/redline/.conkerorrc"); });
+
+// And we should patch the modeline up a bit...
+add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
+add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
+
 // Well if we can't have firebug...
 // TODO: add MODI and FirebugLite here...
 
