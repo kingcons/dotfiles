@@ -9,6 +9,7 @@ pacman -S `cat pkglist.txt`
 mkdir projects; cd projects; git clone git@github.com:redline6561/dotfiles.git;
 cd dotfiles; cp .[^.]* ~/; cp -R lisp_on_linux/.[^.]* ~/;
 git clone git@github.com:redline6561/dotemacs.git ~/emacs;
+cd ~/emacs; git submodule update --init;
 Fix the passwords for jabber and erc.
 5. Install paktahn from AUR. Install quicklisp:
 wget -c http://beta.quicklisp.org/quicklisp.lisp

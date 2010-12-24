@@ -10,6 +10,7 @@ mkdir projects; cd projects; git clone git@github.com:redline6561/dotfiles.git;
 cd dotfiles; cp server/configs/.[^.]* ~/; cp -R server/configs/scripts ~/;
 cp -R server/configs/webapps ~/; sudo cp -R server/etc/* /etc/;
 git clone git@github.com:redline6561/dotemacs.git ~/emacs;
+cd ~/emacs; git submodule update --init;
 Reboot to test.
 5. Do some configuration work...
 Then add postgresql and lighttpd to the daemons array in rc.conf.
