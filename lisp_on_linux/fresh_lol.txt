@@ -20,7 +20,10 @@ sbcl --load quicklisp.lisp
 6. Add .paktahn/config.lisp with "(in-package :pak) (setf *color-scheme* *color-scheme-lightbg*)".
 7. Run the following commands:
 cd ~
-wget http://redlinernotes.com/docs/redlinux/assets.tar.gz
+Decide whether you want TONS of wallpapers or just a few and...
+wget -c http://redlinernotes.com/docs/redlinux/assets.tar.gz
+OR
+wget -c http://redlinernotes.com/docs/redlinux/all_assets.tar.gz
 tar -zxvf assets.tar.gz
 mv wallpapers images/wallpapers
 mv Crashbit .icons/Crashbit
