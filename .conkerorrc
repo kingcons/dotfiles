@@ -2,6 +2,14 @@
 require("session.js");
 session_auto_save_auto_load = true;
 
+// And we should patch the modeline up a bit...
+add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
+add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
+
+// auto completion in the minibuffer
+minibuffer_auto_complete_default = true;
+url_completion_use_history = true;
+
 // I'm pretty used to this behavior. Let's keep it for now.
 require("clicks-in-new-buffer.js");
 clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
@@ -12,23 +20,54 @@ define_key(content_buffer_normal_keymap, "j", "follow-new-buffer");
 // for God's sake try to just press r to reload though.
 define_key(content_buffer_normal_keymap, "C-r", "reload");
 define_key(content_buffer_normal_keymap, "C-l", "find-alternate-url");
+// If only for my friends...
+define_key(content_buffer_normal_keymap, "C-t", "find-url-new-buffer");
+
+// allow for 'contrib' stuff
+load_paths.unshift("chrome://conkeror-contrib/content/");
+
+// add some personal webjumps...
+add_delicious_webjumps("redline6561");
+add_lastfm_webjumps("redline6561");
+
+// teach me something once in a while
+homepage = "http://en.wikipedia.org/wiki/Special:Random";
+wikipedia_enable_didyoumean = true;
 
 // Why should I have to restart conkeror to reload my rc?
 // I've got like 60 tabs open here!
 interactive("rc-reload",
             "Reload .conkerorrc",
-            // Isn't this stored in a variable somewhere? Must I hard code it?
-            function() { load_rc_file("/home/redline/.conkerorrc"); });
+            function(I) {
+                // Isn't this stored in a variable somewhere? Must I hard code it?
+                load("/home/redline/.conkerorrc");
+                I.window.minibuffer.message("config reloaded!");
+            });
 
-// And we should patch the modeline up a bit...
-add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
-add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
+define_key(default_global_keymap, "C-c r", "rc-reload");
 
-// Well if we can't have firebug...
-// TODO: add MODI and FirebugLite here...
+interactive("modi", "The Mouseover DOM Inspector, or MODI for short, is a favelet (also known as a bookmarklet)"
+            + " that allows you to view and manipulate the DOM of a web page simply "
+            + "by mousing around the document (http://slayeroffice.com/tools/modi/v2.0/modi_help.html).",
+           function(I) {
+               z=I.buffer.document.body.appendChild(I.buffer.document.createElement('script'));
+               z.language='javascript';
+               z.type='text/javascript';
+               z.src='http://slayeroffice.com/tools/modi/v2.0/modi_v2.0.js';
+               z.id='modi';
+           });
 
-// the default page for new buffers.
-homepage = "about:blank";
+// interactive("copy-url",
+//         "Copy the current buffer's URL to the clipboard",
+//         function(I) {
+//             var text = I.window.buffers.current.document.location.href;
+//             writeToClipboard(text);
+//             I.window.minibuffer.message("copied: " + text);
+//         });
+
+// define_key(default_global_keymap, "C-c u", "copy-url");
+
+// TODO: Well if we can't have firebug, we'll just use firebug lite
 
 // load urls from the command line in new buffers instead
 // of new windows.
