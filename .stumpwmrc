@@ -25,6 +25,10 @@
         (setf *swank-p* t)
         (message "Starting swank on port 4005."))))
 
+;; Set contribs directory and load a few
+(set-contrib-dir "/usr/share/stumpwm")
+(mapcar #'load-module '("cpu" "mem" "net" "battery" "notifications"))
+
 ;; Define fix-layout command to resize everything when I dock and undock
 (defcommand fix-layout () ()
   "Fix layout calls redisplay on all windows.
@@ -40,9 +44,42 @@ For use whenever I dock and undock switching screens."
     (gselect present-group)
     (select-window-by-number present-window)))
 
-;; Set contribs directory and load a few
-(set-contrib-dir "/usr/share/stumpwm")
-(mapcar #'load-module '("cpu" "mem" "net" "battery" "notifications"))
+;;;; Some fairly invasive changes to the notifications contrib to get the behavior I want...
+;;;; Namely, give me a count of how many folks I've gotten notifications from and
+;;;; define a command to show me the messages and clear them out.
+;; we need to redefine notifications-reset now...
+
+;; We really want to use hash-tables for the grouping...
+(defcommand notifications-reset ()
+    ()
+  "Clear all notifications."
+  (setf notifications (make-hash-table :test #'equal)))
+(notifications-reset) ; Go ahead and ensure it's a hash table.
+
+;; Redefine notifications-add to group messages by sender.
+(defcommand notifications-add (str)
+    ((:rest "Notification: "))
+  "Add a notification string. Since I use notifications exclusively for chat/IM,
+group the messages by sender. Knowledge of the incoming notification format is assumed."
+  (let* ((split-msg (split-string str ":"))
+         (sender (first split-msg))
+         (text (second split-msg)))
+    (push text (gethash sender notifications))))
+
+;; Redefine notifications mode-line output to show people/friends missed, colorize it.
+(defun notifications-as-string (&rest r)
+  (declare (ignore r))
+  (let ((missed-count (hash-table-count notifications))
+        (senders (loop for k being the hash-keys in notifications collecting k)))
+    (format nil "Messages: ~a[ ~{~a~^, ~} ]"
+            (bar-zone-color (* 10 missed-count))
+            senders)))
+
+;; TODO: Define show-messages so I can quickly check what I'm missing on IRC/IM.
+;; Bind it to C-i C-m in the func-bindings below...
+;(defcommand show-messages () ()
+;  "Display the senders and their messages, then clear the notifications table."
+;  )
 
 ;; Add status bar
 (setf *mode-line-background-color* "Black"
@@ -50,14 +87,6 @@ For use whenever I dock and undock switching screens."
       *mode-line-border-color*     "red"
       *mode-line-timeout*          1
       *mode-line-screen-position*  :top)
-
-;; Redefine notifications mode-line to show number of messages missed, colorize it.
-(defun notifications-as-string (&rest r)
-  (declare (ignore r))
-  (let ((msg-count (length notifications)))
-    (format nil "Notifications: ~a~a"
-            (bar-zone-color (* 10 msg-count))
-            (length notifications))))
 
 (setf *screen-mode-line-format* '("%g | %c %M %l %b   %N"))
 
@@ -104,8 +133,7 @@ For use whenever I dock and undock switching screens."
          ("v" . "VirtualBox") ; virtual machines
          ("c" . "chromium")))
       (func-bindings
-       '(("N" . *notifications-map*)
-         ("C-n" . "messages-from") ; TODO: Write this function and make it work...
+       '(("C-n" . "notifications-reset")
          ("C-s" . "swank")
          ("C-l" . "loadrc")
          ("C-w" . "delete")
