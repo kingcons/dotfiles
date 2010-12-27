@@ -45,22 +45,22 @@ For use whenever I dock and undock switching screens."
     (select-window-by-number present-window)))
 
 ;;;; Some fairly invasive changes to the notifications contrib to get the behavior I want...
-;;;; Namely, give me a count of how many folks I've gotten notifications from and
+;;;; Namely, give me a list of who I've missed messages from and
 ;;;; define a command to show me the messages and clear them out.
-;; we need to redefine notifications-reset now...
 
 ;; We really want to use hash-tables for the grouping...
 (defcommand notifications-reset ()
     ()
   "Clear all notifications."
   (setf notifications (make-hash-table :test #'equal)))
-(notifications-reset) ; Go ahead and ensure it's a hash table.
+(notifications-reset) ; Go ahead and ensure notifications is a hash table.
 
 ;; Redefine notifications-add to group messages by sender.
 (defcommand notifications-add (str)
     ((:rest "Notification: "))
   "Add a notification string. Since I use notifications exclusively for chat/IM,
 group the messages by sender. Knowledge of the incoming notification format is assumed."
+  ; TODO: what if the text contains ":"? use position+subseq instead?
   (let* ((split-msg (split-string str ":"))
          (sender (first split-msg))
          (text (second split-msg)))
