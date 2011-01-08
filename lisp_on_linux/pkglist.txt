@@ -34,7 +34,6 @@ ttf-liberation
 ttf-ms-fonts
 ttf-dejavu
 mirage
-pidgin
 sbcl
 xscreensaver
 rxvt-unicode
@@ -82,3 +81,4 @@ texi2html
 tmux
 emacs-w3m-cvs
 conkeror
+gnupg

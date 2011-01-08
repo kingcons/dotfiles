@@ -41,3 +41,4 @@ clojure
 clojure-contrib
 python-pygments
 emacs-w3m-cvs
+siege
