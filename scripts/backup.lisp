@@ -65,10 +65,12 @@
   (delete-file (format nil "~a/~a.tar.bz2" *home* path)))
 
 (defun upload (path logfile server)
-  (run "rsync" (list "-avz" "--delete" (timestamped logfile)
-                     path (format nil "~a:~a/lapback/" server *home*)
-                     (when (string= "docs" (pathname-name path))
-                         "--exclude 'sources'"))))
+  (if (string= "docs" (pathname-name path))
+      (run "rsync" (list "-avz" "--delete" (timestamped logfile)
+                         "--exclude" "'sources'" path
+                         (format nil "~a:~a/lapback/" server *home*)))
+      (run "rsync" (list "-avz" "--delete" (timestamped logfile)
+                         path (format nil "~a:~a/lapback/" server *home*)))))
 
 (defun timestamped (path)
   (multiple-value-bind (seconds minutes hours date month year day dst-p tz)
