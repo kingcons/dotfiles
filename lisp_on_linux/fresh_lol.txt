@@ -8,6 +8,7 @@ pacman -S `cat pkglist.txt`
 4. Extract and insert default config files:
 mkdir projects; cd projects; git clone git@github.com:redline6561/dotfiles.git;
 cd dotfiles; cp .[^.]* ~/; cp -R lisp_on_linux/.[^.]* ~/;
+cp -R scripts ../; crontab cronjobs;
 git clone git@github.com:redline6561/dotemacs.git ~/emacs;
 cd ~/emacs; git submodule update --init;
 Fix the passwords for jabber and erc.

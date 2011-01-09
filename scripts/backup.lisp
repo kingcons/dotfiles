@@ -41,7 +41,9 @@
     ".gnupg/"))
 
 (defvar *separate-dirs*
-  '("/home/redline/docs"
+  ;; My ~/{docs,images,projects} are symlinks to an old partition.
+  ;; Potential TODO: Update these if I rebuild/repartition.
+  '("/media/redlinux/home/redline/docs"
     "/media/redlinux/home/redline/images"
     "/media/redlinux/home/redline/projects"))
 
@@ -79,6 +81,9 @@
     (format nil "--log-file=~a-~4d-~2,'0d-~2,'0d.log" path year month date)))
 
 (defun main ()
+  ;; (upload "/media/redlinux/home/redline/music"
+  ;;         "/home/redline/docs/logs/backups/clockwork-webdev.com"
+  ;;         "clockwork-webdev.com")
   (dolist (server *servers*)
     (let ((logfile (format nil "~a/~a/~a" *home* *log* server)))
       (sync "secrets" *secrets* logfile server)
