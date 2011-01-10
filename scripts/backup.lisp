@@ -67,12 +67,8 @@
   (delete-file (format nil "~a/~a.tar.bz2" *home* path)))
 
 (defun upload (path logfile server)
-  (if (string= "docs" (pathname-name path))
-      (run "rsync" (list "-avz" "--delete" (timestamped logfile)
-                         "--exclude" "'sources'" path
-                         (format nil "~a:~a/lapback/" server *home*)))
-      (run "rsync" (list "-avz" "--delete" (timestamped logfile)
-                         path (format nil "~a:~a/lapback/" server *home*)))))
+  (run "rsync" (list "-avz" "--delete" (timestamped logfile) path
+                     (format nil "~a:~a/lapback/" server *home*))))
 
 (defun timestamped (path)
   (multiple-value-bind (seconds minutes hours date month year day dst-p tz)
@@ -82,7 +78,7 @@
 
 (defun main ()
   ;; (upload "/media/redlinux/home/redline/music"
-  ;;         "/home/redline/docs/logs/backups/clockwork-webdev.com"
+  ;;         "/home/redline/docs/logs/backups/clockwork-webdev.com/music"
   ;;         "clockwork-webdev.com")
   (dolist (server *servers*)
     (let ((logfile (format nil "~a/~a/~a" *home* *log* server)))
