@@ -22,6 +22,7 @@ alias gothrust='ssh 109.169.54.131'
 stty -ixon
 export EDITOR='emacsclient -c'
 export PATH=$PATH:$HOME/builds/bin
+export CHICKEN_DOC_REPOSITORY=/home/redline/emacs/site-lisp/chicken-doc/
 PS1='[\u@\h \W]\$ '
 TERM=rxvt
 
