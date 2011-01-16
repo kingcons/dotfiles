@@ -18,7 +18,7 @@ alias sshproxy='ssh -ND 6561 redlinernotes.com'
 alias theusual='sudo pacman -Syu && pak -Su --aur && sudo pacman -Scc && df -h'
 alias golinode='ssh 74.207.227.162'
 alias gothrust='ssh 109.169.54.131'
-alias keyup='ssh-add ~/.ssh/main-gate-key.pem; ssh-add ~/.ssh/vps-boxen; ssh-add ~/.ssh/id_rsa'
+alias passkeys='ssh-add ~/.ssh/id_rsa'
 
 stty -ixon
 export EDITOR='emacsclient -c'
