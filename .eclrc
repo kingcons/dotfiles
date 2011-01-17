@@ -1,5 +1,4 @@
 (require 'asdf)
-(require 'sockets)
 
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
@@ -9,7 +8,5 @@
 
 (push "/home/redline/projects/systems/" asdf:*central-registry*)
 
-(defmacro full-build (system &body body)
-  `(asdf:make-build ,system :type :program :monolithic t :move-here t
-                    :epilogue-code ',@body))
-
+(defun build (system &optional move-here)
+  (asdf:make-build system :type :program :monolithic t :move-here move-here))

@@ -24,7 +24,7 @@
 
 (defmacro define-ext-test (type extensions)
   `(defun ,type (file)
-     (let ((ext (pathname-type file)))
+     (let ((ext (pathname-type (first file))))
        (member ext ,extensions :test #'equal))))
 
 (define-ext-test video-p '("avi" "mp4" "mov" "flv" "m4v" "mpg" "mkv" "ogm" "ogv"))
@@ -35,15 +35,15 @@
 
 (defun play (path)
   (cond ((video-p path)
-         (start *video-player* (append *vp-args* path-arg)))
+         (start *video-player* (append *vp-args* path)))
         ((docs-p path)
-         (start *document-viewer* (append *dv-args* path-arg)))
+         (start *document-viewer* (append *dv-args* path)))
         ((mp3-p path)
-         (start *mp3-player* (append *ap-args* path-arg)))
+         (start *mp3-player* (append *ap-args* path)))
         ((ogg-p path)
-         (start *ogg-player* (append *ap-args* path-arg)))
+         (start *ogg-player* (append *ap-args* path)))
         ((image-p path)
-         (start *image-viewer* (append *iv-args* path-arg)))
+         (start *image-viewer* (append *iv-args* path)))
         (t (error "Not implemented yet. File was ~A.~%" path))))
 
 (defun choose-file (&optional (path (getcwd)))
