@@ -77,8 +77,10 @@ gdb
 scala
 scala-doc
 scala-src
+sbaz
 texi2html
 tmux
 emacs-w3m-cvs
 conkeror
 gnupg
+ghc

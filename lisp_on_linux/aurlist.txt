@@ -1,6 +1,5 @@
 ccl-bin
 ecl-unicode
-mpdscribble
 stumpwm-git, clx, cl-ppcre
 gitserve-python
 evince-gtk
@@ -10,7 +9,5 @@ clojure
 clojure-contrib
 leiningen
 emacs-tuareg-mode
-csound5
 udis86
 hg-git-hg
-emacs-jabber
