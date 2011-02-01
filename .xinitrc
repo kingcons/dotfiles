@@ -1,14 +1,14 @@
 #!/bin/sh
 ## temporary disabled screensaver due to intel openGL bug *sigh*
 # xscreensaver -no-splash &
+eval `ssh-agent`
+~/projects/scripts/keyup.sh
 thunar --daemon &
 emacs --daemon &
 # mpdscribble &
 ~/builds/bin/randomfile -p ~/images/wallpapers
 xset b off &
 setxkbmap -option "ctrl:nocaps" &
-eval `ssh-agent`
-~/projects/scripts/keyup.sh
 
 DEFAULT_SESSION=stumpwm
 
