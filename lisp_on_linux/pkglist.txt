@@ -84,3 +84,4 @@ emacs-w3m-cvs
 conkeror
 gnupg
 ghc
+recordmydesktop

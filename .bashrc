@@ -19,6 +19,9 @@ alias theusual='pak -Syu --aur && sudo pacman -Scc && df -h'
 alias golinode='ssh 74.207.227.162'
 alias gothrust='ssh 109.169.54.131'
 alias passkeys='ssh-add ~/.ssh/id_rsa'
+alias record='guvcview -n'
+alias screencast='recordmydesktop'
+alias transcode='mencoder -ovc x264 -x264encopts bitrate=768 -oac faac'
 
 stty -ixon
 export EDITOR='emacsclient -c'
