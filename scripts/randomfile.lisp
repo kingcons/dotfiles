@@ -58,7 +58,8 @@
 (defun display-help ()
   (format t "~
 Usage:
-  randomfile         # play a random media file in this directory or its subdirectories
+  randomfile         # play a random media file in this directory or its subdirs
+  randomfile -n      # print a random file underneath $PWD. handy for pipes
   randomfile -p PATH # play a random media file in PATH or its subdirectories
   randomfile -h      # print this help message. :)~%"))
 
@@ -81,9 +82,11 @@ Usage:
          (arg (second args)))
     (cond ((null option)
            (play (choose-file)))
-          ((equal "-h" option)
+          ((string= "-n" option)
+           (format t "~A~%" (first (choose-file))))
+          ((string= "-h" option)
            (display-help))
-          ((equal "-p" option)
+          ((string= "-p" option)
            (play (choose-file arg)))
           (t (display-help)))))
 
