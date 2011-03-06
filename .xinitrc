@@ -15,12 +15,12 @@ DEFAULT_SESSION=stumpwm
 
 case $1 in
 stumpwm)
-	exec ck-launch-session dbus-launch stumpwm
-	;;
+        exec ck-launch-session dbus-launch stumpwm
+        ;;
 twm)
         exec ck-launch-session dbus-launch twm
         ;;
 *)
-	exec ck-launch-session dbus-launch $DEFAULT_SESSION
-	;;
+        exec ck-launch-session dbus-launch $DEFAULT_SESSION
+        ;;
 esac

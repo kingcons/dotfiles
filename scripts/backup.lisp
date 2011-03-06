@@ -13,17 +13,20 @@
 
 ;; NOTES and TODO:
 ;; Do mozilla's $hash.default/ directories change on upgrade?
-;; Symlinks aren't followed, for example, in projects.
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (let ((*standard-output* (make-broadcast-stream))
         (*error-output* (make-broadcast-stream)))
     (load "/home/redline/.sbclrc")
-    (require 'external-program)))
+    (require 'external-program)
+    (require 'split-sequence)
+    (require 'zs3)))
 
 (defpackage :backup
   (:use :cl)
-  (:import-from :external-program :run))
+  (:import-from :external-program #:run)
+  (:import-from :sb-ext #:run-program)
+  (:import-from :split-sequence #:split-sequence))
 
 (in-package :backup)
 
@@ -42,7 +45,6 @@
 
 (defvar *separate-dirs*
   ;; My ~/{docs,images,projects} are symlinks to an old partition.
-  ;; Potential TODO: Update these if I rebuild/repartition.
   '("/media/redlinux/home/redline/docs"
     "/media/redlinux/home/redline/images"
     "/media/redlinux/home/redline/projects"))
@@ -60,15 +62,21 @@
   (format nil "~a.bz2" path))
 
 (defun sync (path files logfile server)
+  (format t "Syncing ~a to ~a...~%" path server)
   (upload (bzip-it (tar-create (format nil "~a/~a.tar" *home* path)
                                (loop for path in files collecting
                                     (format nil "~a/~a" *home* path))))
           (format nil "~a/~a" logfile path) server)
-  (delete-file (format nil "~a/~a.tar.bz2" *home* path)))
+  (delete-file (format nil "~a/~a.tar.bz2" *home* path))
+  (format t "Transfer complete. ~a:~a is backed up.~%" path server))
 
 (defun upload (path logfile server)
-  (run "rsync" (list "-avz" "--delete" (timestamped logfile) path
-                     (format nil "~a:~a/lapback/" server *home*))))
+  (let ((env-vars (with-open-file (in (format nil "~a/.ssh/agent.env" *home*))
+                    (list (read-line in) (read-line in)))))
+    (format t "Starting rsync for ~A~%" path)
+    (run-program "rsync" (list "-avz" "--delete" (timestamped logfile) path
+                               (format nil "~a:~a/lapback/" server *home*))
+                 :environment env-vars :search t)))
 
 (defun timestamped (path)
   (multiple-value-bind (seconds minutes hours date month year day dst-p tz)
