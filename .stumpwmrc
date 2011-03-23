@@ -7,7 +7,8 @@
 (in-package :stumpwm)
 
 ;; Load Swank so we can connect with SLIME
-(pushnew "/home/redline/emacs/site-lisp/slime/" asdf:*central-registry* :test #'equal)
+(pushnew "/home/redline/emacs/site-lisp/slime/"
+         asdf:*central-registry* :test #'equal)
 (asdf:oos 'asdf:load-op 'swank)
 (swank-loader:init)
 (defvar *swank-p* nil)
@@ -26,8 +27,9 @@
         (message "Starting swank on port 4005."))))
 
 ;; Set contribs directory and load a few
-(set-contrib-dir "/usr/share/stumpwm")
-(mapcar #'load-module '("cpu" "mem" "net" "battery" "notifications"))
+(set-contrib-dir "/usr/share/stumpwm/")
+(mapcar #'load-module '("cpu" "mem" "net" "battery"
+                        "notifications" "productivity"))
 
 ;; Define fix-layout command to resize everything when I dock and undock
 (defcommand fix-layout () ()
@@ -81,6 +83,16 @@ group the messages by sender. Knowledge of the incoming notification format is a
 ;  "Display the senders and their messages, then clear the notifications table."
 ;  )
 
+;;;; End notifications hacks
+
+;; Who doesn't love lambda.dat?
+(defcommand quotes-on-lisp-etc ()
+  ()
+  "Run fortune on a few files and display the results with message"
+  (message-no-timeout
+   (run-shell-command
+    "fortune 50% lambda 20% linux 10% wisdom 10% work 10% education" t)))
+
 ;; Add status bar
 (setf *mode-line-background-color* "Black"
       *mode-line-foreground-color* "white"
@@ -105,10 +117,13 @@ group the messages by sender. Knowledge of the incoming notification format is a
 (loop for i from 1 to 9 do
   (unless (= i 1) ; Group 1 is the Default group and already created.
     (gnewbg (format nil "~d" i)))
-  (define-key *top-map* (kbd (format nil "M-~a" i)) (format nil "gselect ~a" i)))
-(loop for (unshifted . shifted) in '((1 . "!") (2 . "@") (3 . "#") (4 . "$") (5 . "%")
-                                     (6 . "^") (7 . "&") (8 . "*") (9 . "(")) do
-   (define-key *top-map* (kbd (format nil "M-~a" shifted)) (format nil "gmove ~a" unshifted)))
+     (define-key *top-map* (kbd (format nil "M-~a" i))
+       (format nil "gselect ~a" i)))
+(loop for (unshifted . shifted) in
+     '((1 . "!") (2 . "@") (3 . "#") (4 . "$") (5 . "%")
+       (6 . "^") (7 . "&") (8 . "*") (9 . "(")) do
+     (define-key *top-map* (kbd (format nil "M-~a" shifted))
+       (format nil "gmove ~a" unshifted)))
 
 ;; Global keybindings
 (define-key *top-map* (kbd "M-TAB") "next")
@@ -134,6 +149,7 @@ group the messages by sender. Knowledge of the incoming notification format is a
          ("c" . "chromium")))
       (func-bindings
        '(("C-n" . "notifications-reset")
+         ("C-u" . "quotes-on-lisp-etc")
          ("C-s" . "swank")
          ("C-l" . "loadrc")
          ("C-w" . "delete")
