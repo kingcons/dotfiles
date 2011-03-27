@@ -1,1 +1,1 @@
-00 01 * * * /home/redline/projects/scripts/backup.lisp
+00 01 * * * sbcl --load ~/projects/scripts/backup.lisp

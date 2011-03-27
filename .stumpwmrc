@@ -163,3 +163,6 @@ group the messages by sender. Knowledge of the incoming notification format is a
     (define-key *root-map* (kbd key) (concatenate 'string "exec " program)))
   (loop for (key . function) in func-bindings do
     (define-key *root-map* (kbd key) function)))
+
+;; For running SBCL from git
+(sb-posix:putenv "SBCL_HOME=/usr/local/lib/sbcl/")
