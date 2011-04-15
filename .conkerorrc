@@ -1,3 +1,4 @@
+
 // I *really* need browser sessions...
 require("session.js");
 session_auto_save_auto_load = true;
@@ -23,6 +24,10 @@ define_key(content_buffer_normal_keymap, "C-l", "find-alternate-url");
 // If only for my friends...
 define_key(content_buffer_normal_keymap, "C-t", "find-url-new-buffer");
 
+// And I can't honestly say I'm fond of M-p and M-n
+define_key(content_buffer_normal_keymap, "C-tab", "buffer-next")
+define_key(content_buffer_normal_keymap, "C-S-tab", "buffer-previous")
+
 // allow for 'contrib' stuff
 load_paths.unshift("chrome://conkeror-contrib/content/");
 
@@ -33,6 +38,9 @@ add_lastfm_webjumps("redline6561");
 // teach me something once in a while
 homepage = "http://en.wikipedia.org/wiki/Special:Random";
 wikipedia_enable_didyoumean = true;
+
+// Download buffers annoy me
+remove_hook("download_added_hook", open_download_buffer_automatically);
 
 // Why should I have to restart conkeror to reload my rc?
 // I've got like 60 tabs open here!

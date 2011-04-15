@@ -86,11 +86,10 @@ and the secret key on the second.")
   '("redlinernotes.com"
     "clockwork-webdev.com"))
 
-(defun stale-keys (&key (cache *key-cache*))
+(defun stale-keys (&key cache)
   (loop for key being the hash-values in cache collecting key))
 
-(defun s3-sync (filepath &key (bucket *bucket*) (dir *upload-dir*)
-                (public-p *public-p*) (cache *key-cache*) (output nil))
+(defun s3-sync (filepath &key bucket dir public-p cache output)
   (flet ((compute-key (namestring)
            (subseq namestring (length (namestring (truename dir))))))
     (let* ((etag (file-etag filepath))
@@ -110,8 +109,11 @@ and the secret key on the second.")
                         "audio/mpeg"
                         "binary/octet-stream"))))))
 
-(defun dir->s3 (dir &key (output nil))
-  (walk-directory dir (lambda (file) (s3-sync file :output output))))
+(defun dir->s3 (dir &key bucket cache output public-p)
+  (walk-directory dir (lambda (file)
+                        (s3-sync file :cache cache :dir dir
+                                 :bucket bucket :output output
+                                 :public-p public-p))))
 
 (defun tar-create (tar paths)
   (run "tar" `("-cvf" ,tar ,@paths))
@@ -156,10 +158,10 @@ and the secret key on the second.")
       (format t "Caching keys.~%") ; princ?
       (loop for key across keys do (setf (gethash (etag key) cache) key))
       (format t "~A keys cached.~%Beginning sync...~%" (hash-table-count cache))
-      (dir->s3 dir :output t)
+      (dir->s3 dir :output t :bucket bucket :cache cache)
       (format t "~%Upload of new and modified files complete.~%")
       (format t "Checking for stale keys to delete...~%")
-      (when (stale-keys)
+      (when (stale-keys :cache cache)
         (format t "~D keys left to delete.~%" (hash-table-count cache))
         (delete-objects (stale-keys) bucket)))
     (format t "Sync to ~S S3 bucket complete.~%" bucket))
