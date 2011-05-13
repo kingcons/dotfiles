@@ -12,3 +12,4 @@ emacs-tuareg-mode
 udis86
 hg-git-hg
 guvcview
+pep8
