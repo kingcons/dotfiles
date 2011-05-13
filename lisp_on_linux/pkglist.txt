@@ -85,3 +85,6 @@ conkeror
 gnupg
 ghc
 recordmydesktop
+mupen64plus
+ipython
+ipython-docs
