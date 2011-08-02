@@ -2,6 +2,8 @@
 // I *really* need browser sessions...
 require("session.js");
 session_auto_save_auto_load = true;
+// I've been bit by this too many damn times.
+session_auto_save_auto_load_fn = session_auto_save_load_window_current;
 
 // And we should patch the modeline up a bit...
 add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
