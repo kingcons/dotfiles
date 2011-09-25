@@ -59,8 +59,14 @@ openntpd
 mediatomb
 vorbis-tools
 ocaml
+ocaml-ounit
+ocaml-findlib
 openjdk6
 gdb
+strace
+oprofile
+splint
+valgrind
 tmux
 conkeror
 gnupg
@@ -82,3 +88,4 @@ consolekit
 evince
 words
 aspell-en
+scons
