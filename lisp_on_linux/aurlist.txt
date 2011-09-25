@@ -1,15 +1,12 @@
 ccl-bin
 ecl-unicode
 stumpwm-git, clx, cl-ppcre
-gitserve-python
-evince-gtk
-virtualbox_bin
+guile-devel
 factor
-clojure
-clojure-contrib
+virtualbox_bin
+gitserve-python
 leiningen
-emacs-tuareg-mode
+pep8
 udis86
 hg-git-hg
 guvcview
-pep8
