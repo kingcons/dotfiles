@@ -89,3 +89,4 @@ evince
 words
 aspell-en
 scons
+ack
