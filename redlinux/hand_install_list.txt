@@ -1,1 +1,0 @@
-paktahn, larch, larchin, larch-live (lzop, squashfs-tools, syslinux, cdrkit)?
