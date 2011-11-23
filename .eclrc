@@ -2,7 +2,7 @@
 
 ;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
-(let ((quicklisp-init #p"/media/redlinux/home/redline/Desktop/quicklisp/setup.lisp"))
+(let ((quicklisp-init #p"/home/redline/quicklisp/setup.lisp"))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
 

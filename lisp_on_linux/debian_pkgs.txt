@@ -93,3 +93,6 @@ ack-grep
 resolvconf
 pulseaudio
 paman
+firmware-iwlwifi
+libdrm-intel1
+xserver-xorg-video-intel
