@@ -91,8 +91,10 @@ trayer
 update-notifier
 ack-grep
 resolvconf
-pulseaudio
-paman
+texinfo
 firmware-iwlwifi
 libdrm-intel1
 xserver-xorg-video-intel
+pulseaudio
+paman
+pavucontrol

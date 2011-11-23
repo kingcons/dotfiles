@@ -9,6 +9,7 @@ sudo aptitude install `cat debian_pkgs.txt`; cd ..;
 # use them dotfiles!
 echo "installing dotfiles..."
 cp .[^.]* ~/; cp -R lisp_on_linux/.[^.]* ~/;
+sudo cp lisp_on_linux/org.freedesktop.NetworkManager.pkla /etc/polkit-1/localauthority/50-local.d/;
 #FIXME: this copies .git too for some reason...
 
 # set up some scripts/hacks that other dotfiles use

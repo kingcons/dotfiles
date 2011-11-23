@@ -5,4 +5,4 @@ Install secrets.tar.bz2.
 mkdir ~/projects; cd ~/projects; git clone git@github.com:redline6561/dotfiles.git;
 cd dotfiles/lisp_on_linux; ./debian_install.sh;
 
-Now add your files from wherever.
+Now copy over any needed files (music, personal docs, etc).
