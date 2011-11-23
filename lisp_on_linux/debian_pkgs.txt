@@ -78,9 +78,11 @@ pylint
 pyflakes
 fortune-mod
 clojure
+clojure-contrib
 evince
 ack
 ecl
+guile-2.0
 stumpwm
 automake
 autoconf
@@ -92,6 +94,13 @@ update-notifier
 ack-grep
 resolvconf
 texinfo
+slurm
+dstat
+ttyrec
+nethack-el
+tree
+mencoder
+gparted
 nzbget
 par2
 rtorrent
