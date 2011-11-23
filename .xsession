@@ -3,13 +3,20 @@
 # xscreensaver -no-splash &
 eval `ssh-agent`
 set | grep SSH > ~/.ssh/agent.env
-~/projects/scripts/keyup.sh
+~/projects/hacks/keyup.sh
 thunar --daemon &
 emacs --daemon &
 # mpdscribble &
-~/builds/bin/randomfile -p ~/images/wallpapers &
+~/bin/randomfile -p ~/Pictures/wallpapers &
 xset b off &
 setxkbmap -option "ctrl:nocaps" &
+## network-manager goodies
+/usr/lib/notification-daemon/notification-daemon &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+trayer --SetDockType true --transparent true --expand false --align right &
+nm-applet &
+update-notifier &
+
 
 DEFAULT_SESSION=stumpwm
 

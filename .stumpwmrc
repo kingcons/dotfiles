@@ -27,9 +27,8 @@
         (message "Starting swank on port 4005."))))
 
 ;; Set contribs directory and load a few
-(set-contrib-dir "/usr/share/stumpwm/")
-(mapcar #'load-module '("cpu" "mem" "net" "battery"
-                        "notifications" "productivity"))
+(set-contrib-dir "/usr/share/common-lisp/source/stumpwm/contrib/")
+(mapcar #'load-module '("cpu" "mem" "net" "battery-portable" "notifications" "productivity"))
 
 ;; Define fix-layout command to resize everything when I dock and undock
 (defcommand fix-layout () ()
@@ -86,12 +85,11 @@ group the messages by sender. Knowledge of the incoming notification format is a
 ;;;; End notifications hacks
 
 ;; Who doesn't love lambda.dat?
-(defcommand quotes-on-lisp-etc ()
+(defcommand quotes-on-lisp ()
   ()
-  "Run fortune on a few files and display the results with message"
+  "Run fortune lambda and display the results with message."
   (message-no-timeout
-   (run-shell-command
-    "fortune 50% lambda 20% linux 10% wisdom 10% work 10% education" t)))
+   (run-shell-command "fortune lambda" t)))
 
 ;; Add status bar
 (setf *mode-line-background-color* "Black"
@@ -100,7 +98,7 @@ group the messages by sender. Knowledge of the incoming notification format is a
       *mode-line-timeout*          1
       *mode-line-screen-position*  :top)
 
-(setf *screen-mode-line-format* '("%g | %c %M %l %b   %N"))
+(setf *screen-mode-line-format* '("%g | %c %M %l %B   %N"))
 
 ;; And turn it on
 (when (not (head-mode-line (current-head)))
@@ -141,15 +139,15 @@ group the messages by sender. Knowledge of the incoming notification format is a
          ("t" . "urxvt") ; terminal
          ("a" . "urxvt -e rlwrap sbcl --eval \"(ql:quickload :shuffletron)\" --eval \"(shuffletron:run)\"") ; audio player
          ("s" . "scrot -d 5 '%Y-%m-%d.png' -e 'mv $f ~/images/screenshots/'") ; print screen
-         ("b" . "~/builds/bin/randomfile -p ~/images/wallpapers") ; background setter
+         ("b" . "~/bin/randomfile -p ~/Pictures/wallpapers") ; background setter
          ("f" . "thunar") ; file manager
          ("p" . "pidgin") ; Instant Messenger/IRC
-         ("n" . "urxvt -e /usr/bin/wicd-curses") ; networking configuration
+         ("n" . "nm-tool") ; networking configuration
          ("v" . "VirtualBox") ; virtual machines
          ("c" . "chromium")))
       (func-bindings
        '(("C-n" . "notifications-reset")
-         ("C-u" . "quotes-on-lisp-etc")
+         ("C-u" . "quotes-on-lisp")
          ("C-s" . "swank")
          ("C-l" . "loadrc")
          ("C-w" . "delete")
@@ -164,5 +162,3 @@ group the messages by sender. Knowledge of the incoming notification format is a
   (loop for (key . function) in func-bindings do
     (define-key *root-map* (kbd key) function)))
 
-;; For running SBCL from git
-(sb-posix:putenv "SBCL_HOME=/usr/local/lib/sbcl/")

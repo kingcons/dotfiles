@@ -13,20 +13,17 @@ alias booksync='rsync -rvzu --delete ~/docs/books/ /media/disk/books/'
 alias nexusync='musync && booksync'
 alias logsync='rsync -av ~/.purple/logs/ ~/docs/logs/'
 alias sshproxy='ssh -ND 6561 redlinernotes.com'
+alias sshswank='ssh -L 4006:localhost:4005 redlinernotes.com'
 # alias ps3share='ushare -d -i wlan0 -c $1'
 # alias rgrep='find . -name \!:2 -exec grep -i \!^ {} /dev/null \\\;'
-alias theusual='pak -Syu --aur && sudo pacman -Scc && df -h'
-alias golinode='ssh 74.207.227.162'
-alias gothrust='ssh 109.169.54.131'
+alias theusual='sudo aptitude update && sudo aptitude full-upgrade && df -h'
 alias passkeys='ssh-add ~/.ssh/id_rsa'
 alias record='guvcview -n'
-alias screencast='recordmydesktop'
+alias screencast='recordmydesktop --device=pulse'
 alias transcode='mencoder -ovc x264 -x264encopts bitrate=768 -oac faac'
 
 stty -ixon
 export EDITOR='emacsclient -c'
-export PATH=$PATH:$HOME/builds/bin
-export CHICKEN_DOC_REPOSITORY=/home/redline/emacs/site-lisp/chicken-doc/
 PS1='[\u@\h \W]\$ '
 TERM=rxvt
 
