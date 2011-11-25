@@ -92,7 +92,11 @@ update-notifier
 ack-grep
 resolvconf
 texinfo
+nzbget
+par2
+rtorrent
 firmware-iwlwifi
+wireless-tools
 libdrm-intel1
 xserver-xorg-video-intel
 pulseaudio
