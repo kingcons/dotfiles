@@ -95,6 +95,7 @@ texinfo
 nzbget
 par2
 rtorrent
+sshfs
 firmware-iwlwifi
 wireless-tools
 libdrm-intel1
