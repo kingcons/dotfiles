@@ -21,6 +21,7 @@ alias passkeys='ssh-add ~/.ssh/id_rsa'
 alias record='guvcview -n'
 alias screencast='recordmydesktop --device=pulse'
 alias transcode='mencoder -ovc x264 -x264encopts bitrate=768 -oac faac'
+alias avimerge='mencoder -forceidx -ovc copy -oac copy'
 
 stty -ixon
 export EDITOR='emacsclient -c'
