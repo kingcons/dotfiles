@@ -1,6 +1,8 @@
 #!/bin/sh
 # my not quite hands-free post-debian install script
 
+set -e
+
 # the mega package install
 echo "updating package cache and performing mega install..."
 sudo aptitude update;

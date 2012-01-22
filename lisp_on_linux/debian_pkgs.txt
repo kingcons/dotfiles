@@ -105,6 +105,8 @@ nzbget
 par2
 rtorrent
 sshfs
+mencoder
+minidlna
 firmware-iwlwifi
 wireless-tools
 libdrm-intel1
