@@ -23,9 +23,14 @@ alias screencast='recordmydesktop --device=pulse'
 alias transcode='mencoder -ovc x264 -x264encopts bitrate=768 -oac faac'
 alias avimerge='mencoder -forceidx -ovc copy -oac copy'
 
+alias letswork='VBoxHeadless -s cmg &'
+alias gowork='ssh cmg@vbox -Y -A'
+alias worksucks='VBoxManage controlvm cmg acpipowerbutton'
+
 stty -ixon
 export EDITOR='emacsclient -c'
 PS1='[\u@\h \W]\$ '
+unset PROMPT_COMMAND # just in case, <3 you emacs multi-term
 TERM=rxvt
 
 if [ -f /etc/bash_completion ]; then

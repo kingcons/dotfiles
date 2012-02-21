@@ -67,6 +67,23 @@ interactive("modi", "The Mouseover DOM Inspector, or MODI for short, is a favele
                z.id='modi';
            });
 
+// Well if we can't have firebug, we'll just use firebug lite
+
+define_variable("firebug_url",
+    "http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js");
+
+function firebug (I) {
+    var doc = I.buffer.document;
+    var script = doc.createElement('script');
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('src', firebug_url);
+    script.setAttribute('onload', 'firebug.init();');
+    doc.body.appendChild(script);
+}
+
+interactive("firebug", "open firebug lite", firebug);
+define_key(default_global_keymap, "C-c d", "firebug");
+
 // interactive("copy-url",
 //         "Copy the current buffer's URL to the clipboard",
 //         function(I) {
@@ -76,8 +93,6 @@ interactive("modi", "The Mouseover DOM Inspector, or MODI for short, is a favele
 //         });
 
 // define_key(default_global_keymap, "C-c u", "copy-url");
-
-// TODO: Well if we can't have firebug, we'll just use firebug lite
 
 // load urls from the command line in new buffers instead
 // of new windows.

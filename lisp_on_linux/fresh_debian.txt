@@ -1,5 +1,5 @@
 Install Debian testing, redline user, just SSH server, laptop utils.
-Login as root: Install sudo,git,bzip2. gpasswd -a redline sudo. gpasswd -a redline netdev. gpasswd -a redline fuse.
+Login as root: Install sudo,git,bzip2. gpasswd -a redline {sudo,netdev,plugdev,fuse}
 Add contrib and non-free repos. Switch $release-name to testing. Logout.
 Install secrets.tar.bz2.
 mkdir ~/projects; cd ~/projects; git clone git@github.com:redline6561/dotfiles.git;
