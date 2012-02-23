@@ -13,10 +13,6 @@ setxkbmap -option "ctrl:nocaps" &
 ## network-manager goodies
 /usr/lib/notification-daemon/notification-daemon &
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-trayer --SetDockType true --transparent true --expand false --align right &
-nm-applet &
-update-notifier &
-
 
 DEFAULT_SESSION=stumpwm
 
@@ -31,3 +27,7 @@ twm)
         exec ck-launch-session dbus-launch $DEFAULT_SESSION
         ;;
 esac
+
+trayer --SetDockType true --transparent true --expand false --align right &
+nm-applet &
+update-notifier &

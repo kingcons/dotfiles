@@ -45,6 +45,30 @@ For use whenever I dock and undock switching screens."
     (gselect present-group)
     (select-window-by-number present-window)))
 
+(defun get-next-frame (&optional (frame (tile-group-current-frame (current-group))))
+  "Return the next frame, use the current frame as a start point if no frame is supplied."
+  (let ((next (cdr (member frame (group-frames (current-group)) :test 'eq))))
+    (if (null next)
+        (first (group-frames (current-group)))
+        (first next))))
+
+(defun get-next-window (&optional (window (frame-window (tile-group-current-frame (current-group)))))
+  "Return the next window, use the current window as a start point if no window is supplied."
+  (let ((next (cdr (member window (sort-windows (current-group)) :test 'eq))))
+    (if (null next)
+        (first (sort-windows (current-group)))
+        (first next))))
+
+(defcommand swap-windows (&optional (frame (tile-group-current-frame (current-group))))
+  ()
+  "Swap position/frame of current window with next."
+  ;; TODO: Unless 2 or more frames, don't do it!
+  (let* ((frames (group-frames (current-group)))
+         (win1 (frame-window frame))
+         (win2 (get-next-window)))
+    (pull-window win1 (get-next-frame))
+    (pull-window win2 frame)))
+
 ;;;; Some fairly invasive changes to the notifications contrib to get the behavior I want...
 ;;;; Namely, give me a list of who I've missed messages from and
 ;;;; define a command to show me the messages and clear them out.
@@ -146,7 +170,8 @@ group the messages by sender. Knowledge of the incoming notification format is a
          ("v" . "VirtualBox") ; virtual machines
          ("c" . "chromium")))
       (func-bindings
-       '(("C-n" . "notifications-reset")
+       '(("TAB" . "swap-windows")
+         ("C-n" . "notifications-reset")
          ("C-u" . "quotes-on-lisp")
          ("C-s" . "swank")
          ("C-l" . "loadrc")
