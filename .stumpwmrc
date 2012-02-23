@@ -62,12 +62,11 @@ For use whenever I dock and undock switching screens."
 (defcommand swap-windows (&optional (frame (tile-group-current-frame (current-group))))
   ()
   "Swap position/frame of current window with next."
-  ;; TODO: Unless 2 or more frames, don't do it!
-  (let* ((frames (group-frames (current-group)))
-         (win1 (frame-window frame))
-         (win2 (get-next-window)))
-    (pull-window win1 (get-next-frame))
-    (pull-window win2 frame)))
+  (unless (< 2 (length (group-frames (current-group))))
+    (let* ((curr (frame-window frame))
+           (next (get-next-window)))
+      (pull-window next frame)
+      (pull-window curr (get-next-frame)))))
 
 ;;;; Some fairly invasive changes to the notifications contrib to get the behavior I want...
 ;;;; Namely, give me a list of who I've missed messages from and
