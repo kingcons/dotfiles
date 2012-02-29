@@ -49,7 +49,6 @@ vorbis-tools
 sbcl
 sbcl-docs
 sbcl-source
-cl-clx-sbcl
 ocaml
 libounit-ocaml-dev
 ocaml-batteries-included

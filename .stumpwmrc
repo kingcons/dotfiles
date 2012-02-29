@@ -1,8 +1,5 @@
 ;; .stumpwmrc
 
-;; A tasty little hack so debian uses sbcl instead of clisp.
-; debian=sbcl
-
 ;; TODO:
 ;; Use amixer?
 ;; Set prefix key to Alt-Shift or Super? Single key?

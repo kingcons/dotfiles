@@ -53,9 +53,8 @@ echo "installing factor..."
 wget -c http://downloads.factorcode.org/releases/0.94/factor-linux-x86-64-0.94.tar.gz;
 tar zxvf factor*.tar.gz factor; rm factor*.tar.gz; ln -s ~/bin/builds/factor/factor ../;
 
-# install quicklisp on my lisps, download all the libs on sbcl, load clx while we're at it
-echo "installing quicklisp! (also, lots of libs, compiling clx, etc)"
-sbcl --eval "(progn (asdf:oos 'asdf:load-op 'clx) (sb-ext:quit))"
+# install quicklisp on my lisps, download all the libs on sbcl
+echo "installing quicklisp! (also, lots of libs)"
 sbcl --load quicklisp.lisp;
 sbcl --eval "(progn (map nil 'ql-dist:ensure-installed (ql-dist:provided-releases (ql-dist:dist \"quicklisp\"))) (sb-ext:quit))";
 
