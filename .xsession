@@ -20,9 +20,6 @@ case $1 in
 stumpwm)
         exec ck-launch-session dbus-launch stumpwm
         ;;
-xmonad)
-        exec ck-launch-session dbus-launch xmonad
-        ;;
 twm)
         exec ck-launch-session dbus-launch twm
         ;;
