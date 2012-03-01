@@ -114,3 +114,5 @@ libdrm-intel1
 xserver-xorg-video-intel
 pulseaudio
 pavucontrol
+xmonad
+xmobar
