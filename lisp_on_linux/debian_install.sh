@@ -53,17 +53,17 @@ echo "installing factor..."
 wget -c http://downloads.factorcode.org/releases/0.94/factor-linux-x86-64-0.94.tar.gz;
 tar zxvf factor*.tar.gz factor; rm factor*.tar.gz; ln -s ~/bin/builds/factor/factor ../;
 
-# install quicklisp on my lisps, download all the libs on sbcl
+# install quicklisp for sbcl, download all the libs!
 echo "installing quicklisp! (also, lots of libs)"
 sbcl --load quicklisp.lisp;
 sbcl --eval "(progn (map nil 'ql-dist:ensure-installed (ql-dist:provided-releases (ql-dist:dist \"quicklisp\"))) (sb-ext:quit))";
 
-# install wallpapers, randomfile
+# install wallpapers, randomfile, quickproject, etc
 echo "installing personal effects..."
 mkdir ~/Pictures; cd ~/Pictures; wget -c http://redlinernotes.com/docs/assets.tar.bz2;
 tar jxvf assets.tar.bz2; rm assets.tar.bz2; cd ~/projects/hacks/;
 ecl -eval "(asdf:make-build :randomfile :type :program :monolithic t :move-here t)";
-mv asdf-output/randomfile-mono ~/bin/randomfile;
+mv asdf-output/randomfile-mono ~/bin/randomfile; cp quickproject ~/bin/;
 
 echo "All done! Remember to install the debs in ~/bin/builds/debs/..."
 echo "Also...you may want to cd ~ && sudo rm -R .git due to an outstanding bug. :-/"
