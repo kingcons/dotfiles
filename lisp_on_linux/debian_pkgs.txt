@@ -96,6 +96,7 @@ update-notifier
 ack-grep
 resolvconf
 texinfo
+texlive
 slurm
 dstat
 ttyrec

@@ -22,6 +22,7 @@ alias record='guvcview -n'
 alias screencast='recordmydesktop --device=pulse'
 alias transcode='mencoder -ovc x264 -x264encopts bitrate=768 -oac faac'
 alias avimerge='mencoder -forceidx -ovc copy -oac copy'
+alias ripmulti='cdrdao read-cd --device /dev/cdrom -v 2 --datafile CD.bin --read-raw CD.toc'
 
 alias letswork='VBoxHeadless -s cmg &'
 alias gowork='ssh cmg@vbox -Y -A'
