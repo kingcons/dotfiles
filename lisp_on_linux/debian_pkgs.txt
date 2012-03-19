@@ -28,6 +28,7 @@ network-manager-gnome
 openvpn
 bzr
 git
+git-svn
 mercurial
 darcs
 cvs
@@ -109,6 +110,7 @@ par2
 rtorrent
 sshfs
 mencoder
+projectm-pulseaudio
 minidlna
 cdrdao
 firmware-iwlwifi

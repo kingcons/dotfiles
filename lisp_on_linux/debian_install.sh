@@ -38,14 +38,14 @@ rm redppa.tar.gz; #cd debs; sudo dpkg -i *.deb; cd ..;
 
 # install ccl
 echo "installing ccl..."
-svn co http://svn.clozure.com/publicsvn/openmcl/release/1.7/linuxx86/ccl;
+svn co http://svn.clozure.com/publicsvn/openmcl/release/1.8/linuxx86/ccl;
 cd ccl; ./lx86cl64 -e "(progn (rebuild-ccl :full t) (quit))";
 ln -s ~/bin/builds/ccl/lx86cl64 ../ccl;
 
 # install pypy
 echo "installing pypy..."
 cd ~/bin/builds;
-wget -c https://bitbucket.org/pypy/pypy/downloads/pypy-1.7-linux64.tar.bz2;
+wget -c https://bitbucket.org/pypy/pypy/downloads/pypy-1.8-linux64.tar.bz2;
 tar jxvf pypy*.bz2 pypy; rm pypy*.bz2; ln -s ~/bin/builds/pypy/bin/pypy ../;
 
 # install factor
