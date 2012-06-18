@@ -1,0 +1,268 @@
+%%%% Compile with: texi2pdf resume.tex ## requires texlive,
+
+\documentclass[margintitle,line]{res}
+\usepackage[a4paper,left=1.0cm,right=4.5cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+%\usepackage{ifthen}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{wrapfig}
+
+%\newboolean{@all-talks}
+%\setboolean{@all-talks}{false}
+
+% specify some fonts and colors
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\sectionfont}{\scshape}
+\renewcommand{\namefont}{\LARGE \bfseries}
+\renewcommand{\titlefont}{\bf}
+\renewcommand{\datesfont}{\bf}
+\definecolor{linecolor}{RGB}{25,25,112}
+
+% override defaults
+\renewcommand{\employerfont}{}
+
+% ugly kludge: we really have to define proper subsections in the .cls file
+\renewcommand{\subsection}[1]{\section{\normalfont #1}}
+
+\setlength{\parskip}{2ex}
+
+\hypersetup{
+  pdfauthor   = {Brit Butler},
+  pdftitle    = {Curriculum Vitae: Brit Butler},
+  pdfsubject  = {Curriculum Vitae},
+  pdfkeywords = {Brit Butler, Butler, Curriculum Vitae, CV, resume},
+}
+
+\begin{document}
+
+\name{Brit Butler}
+
+\begin{resume}
+
+% Specify the format of work entries
+\begin{format}
+\dates{l}\\
+\title{l}\employer{r}\\
+\body\\
+\end{format}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{wrapfigure}{r}{40mm}
+% \begin{center}
+%  \includegraphics[width=0.1\textwidth]{lks}
+% \end{center}
+%\end{wrapfigure}
+
+\section{Contact Information}
+
+404-718-9378 \hfill {E-mail:} \href{mailto:redline6561@gmail.com}{\nolinkurl{redline6561@gmail.com}} \\
+1270 West Peachtree Street, Apt 12G \hfill {Code:} \url{http://github.com/redline6561/} \\
+Atlanta, GA 30309 \hfill {Web:} \url{http://www.redlinernotes.com/} \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{\mbox{Work Experience}}
+
+\subsection{Remunerated}
+
+\title{Software Engineer}
+\employer{\llap{CMGdigital}}
+\dates{May 2011 -- present}
+\begin{position}
+  I worked on a 160k SLOC Django project to serve Newspaper, TV, and Radio publishers.
+  I had particular focuses on admin customization and data migration. I also gave talks
+  on \href{http://redlinernotes.com/docs/talks/wosw.html}{the Economics of Open Source} and
+  \href{http://redlinernotes.com/docs/talks/cl-gbu.html}{the Common Lisp programming language}.
+\end{position}
+
+\title{Web Developer (Part-time)}
+\employer{\llap{Teacher Resource Network}}
+\dates{August 2010 -- November 2010}
+\begin{position}
+  I worked closely with the Lead Developer writing extension modules
+  for the Drupal Content Management System in PHP. I also worked on
+  various UI aspects of the site using Javascript and jQuery.
+  I left to focus my full attention on school and personal projects.
+\end{position}
+
+\title{Help Desk Assistant}
+\employer{\llap{TVSA}}
+\dates{May 2007 -- September 2008}
+\begin{position}
+  Aside from typical Help Desk duties, I developed and maintained
+  a Joomla-based intranet after evaluating Plone and Drupal. I
+  helped our lead developer test various Java servlet containers and
+  load balancers. I made bi-weekly trips to the Chicago office to do
+  maintenance on our desktops and servers there. I also held several
+  training sessions on use of the videoconferencing equipment and intranet.
+\end{position}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Voluntary}
+
+%% Also slideware, romreader, cl-echonest, etc...
+
+\title{Lead Developer, Maintainer}
+\employer{\href{http://github.com/redline6561/cl-6502}{cl-6502}}
+\dates{May 2011 -- present}
+\begin{position}
+  cl-6502 is a MOS 6502 emulator written in Common Lisp. It strives for
+  concision, correctness, performance and extensibility. Some of the motivation
+  behind its creation and reasoning behind its design are described
+  \href{http://redlinernotes.com/blog/?p=1421}{here}.
+\end{position}
+
+\title{Lead Developer, Maintainer}
+\employer{\href{http://github.com/redline6561/cl-scrobbler}{cl-scrobbler}}
+\dates{September 2011 -- October 2011}
+\begin{position}
+  cl-scrobbler is a Lisp library for interaction with last.fm's
+  \href{http://www.last.fm/api/scrobbling}{Scrobbling API}. I have integrated
+  it with the \href{http://vintage-digital.com/hefner/software/shuffletron/}{shuffletron}
+  music player and use it daily. I also
+  \href{http://redlinernotes.com/docs/talks/cl-mft.html}{delivered a talk}
+  about how lisp helped me integrate and debug the two at a meeting of the
+  Atlanta Lisp Users Group.
+\end{position}
+
+\title{Maintainer, Developer}
+\employer{\href{http://github.com/redline6561/paktahn}{Paktahn}}
+\dates{September 2009 -- present}
+\begin{position}
+  Paktahn is a command-line based package management helper for Archlinux.
+  I have made 8 major releases, fixed numerous bugs, implemented features
+  including proxy support and AUR updates and assisted users on the Archlinux
+  forums. Recently, I handled the migration from version 5 to 6 of the
+  underlying C library (libalpm) and found a regression in libalpm's API in
+  process.
+\end{position}
+
+\title{Contributor}
+\employer{Miscellaneous}
+\begin{position}
+  I have also contributed minor feature, portability, and documentation patches to:
+  \begin{itemize}
+    \item{SBCL, the Steel Bank Common Lisp compiler}
+    \item{st-json, a Common Lisp JSON library}
+    \item{kardboard, a virtual Kanban web app made with Python and Flask}
+    \item{pybrightcove, a Python interface to Brightcove's API}
+    \item{cl-docutils, a Common Lisp port of Python's docutils system and ReStructuredText parser}
+    \item{external-program, a Common Lisp library for running external processes}
+    \item{unix-options, a Common Lisp library for handling command line arguments}
+  \end{itemize}
+\end{position}
+
+\title{Lead Developer, Maintainer}
+\employer{Clockwork}
+\dates{September 2010 -- present}
+\begin{position}
+  I wrote a simple yet functional Event Reminder Service utilizing
+  the Weblocks web framework. It uses the jQuery library and the cl-prevalence
+  in-memory datastore to send reminders by email, text message or both at a preset time.
+  It continues to run at \url{http://clockwork.redlinernotes.com}.
+\end{position}
+
+\title{Contributor}
+\employer{Weblocks}
+\dates{October 2010 -- present}
+\begin{position}
+  I cleaned up, tested and submitted a set of existing patches adding
+  a PostgreSQL backend. I authored patches improving the handling of
+  page dependencies and easing the use of inline javascript in page headers.
+\end{position}
+
+\title{Intern}
+\employer{\llap{Kloudshare}}
+\dates{January 2010 -- May 2010}
+\begin{position}
+  I extracted and open sourced a library for easily interfacing
+  with web service APIs from the Kloudshare codebase. The library
+  is called cl-web-utils and is available on github. I documented
+  various parts of the overall architecture and helped track down
+  a serious bug for first time users of the service which prevented
+  content from loading properly.
+\end{position}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education}
+
+\title{B.Sc. in Computer Science}
+\employer{\llap{Southern Polytechnic State University}}
+\dates{January 2009 -- May 2011}
+\begin{position}
+  I transferred to SPSU in August 2007 to pursue Computer Science.
+  After the first semester, I took a year off to work full-time and self-study.
+  I returned in January 2009 and graduated in May 2011.
+\end{position}
+
+\title{Self-Study}
+\dates{January 2008 -- August 2008}
+\begin{position}
+  After my first semester at SPSU I decided to self-study
+  programming while working full-time. I did this
+  throughout 2008 and have written about it
+  (including posting my work progress), notably
+  \href{http://redlinernotes.com/blog/?p=665}{here} and
+  \href{http://redlinernotes.com/blog/?p=703}{here}.
+  Example work from self-study can be found
+  \href{http://redlinernotes.com/blog/?p=666}{here}.
+\end{position}
+
+\title{B.A. in Literature (transferred)}
+\employer{\llap{Oglethorpe University}}
+\dates{August 2004 -- May 2007}
+\begin{position}
+  I spent several years at Oglethorpe studying literature
+  and economics with particular interests in 20th century
+  poetry and the provision of public goods before leaving
+  because OU did not offer a CS program.
+\end{position}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% listings
+\setlength{\parskip}{1ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+
+I've loved computers as long as I can remember. I've used Linux exclusively
+since 2006 and began programming in 2008. I have a particular interest in
+compilers and the implementation of dynamic, interactive languages but am
+consistently seeking to extend my knowledge in all areas of Software Development
+and Computer Science.
+
+Programming Languages (intermediate): Common Lisp, Python \\
+Programming Languages (novice): C, Java, PHP, Erlang, Scheme, C\#, Haskell,
+C++, Factor, Javascript, Emacs Lisp, Clojure \\
+Markup Languages: HTML, CSS, LaTeX \\
+Command Languages: Bash \\
+Operating Systems: Mac OS X, Windows 3.11-7, Various Linux distributions
+esp. Debian and Archlinux \\
+Preferred Tools: Emacs, Git, Steel Bank Common Lisp, Debian \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Interests}
+
+When I'm not in front of my computer, I like to skateboard, make
+\href{http://soundcloud.com/redlinernotes}{mixtapes}, play blues guitar and
+read and write poetry. Whenever I have the time, I blog about my technical
+experiences, observations and sometimes music or poetry
+\href{http://redlinernotes.com/blog/}{here}.
+
+I have serious interests in Intellectual Property Law and Peer Production.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{References}
+
+Available on request.
+
+\end{resume}
+\end{document}
