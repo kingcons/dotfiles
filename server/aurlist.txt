@@ -1,5 +1,0 @@
-ccl-bin
-leiningen
-apache-tools
-hg-git-hg
-emacs-tuareg-mode
