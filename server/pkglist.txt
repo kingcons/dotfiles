@@ -16,6 +16,8 @@ sloccount
 bash-completion
 screen
 lighttpd
+postgresql
+postgresql-client
 apache2-utils
 lsof
 strace
@@ -30,4 +32,5 @@ pypy
 luajit
 build-essential
 cl-quicklisp
+pygments
 # maybe add clojure, ocaml, ghc?
