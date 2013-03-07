@@ -69,21 +69,28 @@ Atlanta, GA 30309 \hfill {Web:} \url{http://www.redlinernotes.com/} \\
 
 \title{Senior Software Engineer}
 \employer{\llap{Primedia Inc.}}
-\dates{September 2012 -- present}
+\dates{September 2012 -- March 2013}
 \begin{position}
   I worked on a Riak-backed configuration service using Clojure and the Noir web framework. It was later
-  refactored to remove Noir when the maintainers deprecated it. I also attended Strange Loop
-  in St. Louis and took \href{http://blog.redlinernotes.com/posts/Strange-Loop-Notes---Day-2.html}{lots}
-  of \href{http://blog.redlinernotes.com/posts/Strange-Loop-Notes---Day-1.html}{notes}.
+  refactored to remove Noir when the maintainers deprecated it. Initiated formalization of git workflow
+  and code review process. I also attended Strange Loop in St. Louis and took
+  \href{http://blog.redlinernotes.com/posts/Strange-Loop-Notes---Day-2.html}{lots} of
+  \href{http://blog.redlinernotes.com/posts/Strange-Loop-Notes---Day-1.html}{notes}.
 \end{position}
 
 \title{Software Engineer}
 \employer{\llap{CMGdigital}}
 \dates{May 2011 -- September 2012}
 \begin{position}
-  I worked on a 160k SLOC Django project to serve Newspaper, TV, and Radio publishers.
-  I had particular focuses on admin customization and data migration. I also gave talks
-  on \href{http://redlinernotes.com/docs/talks/opa.html}{``Programmer Archaeology''},
+  I worked on a 160k SLOC Python/Django project to serve Newspaper, TV, and Radio publishers.
+  I had particular focuses on admin customization and data migration. I oversaw the migration of over
+  100K users from multiple markets to our new CMS. I added checks to prevent creation of duplicate ad
+  mappings by Ad Ops. I wrote a mixin enabling any content type to be trivially published to multiple
+  sites via a user-friendly admin action. I added a flexible save-as-new action with pre-hook,
+  post-hook, and copy-excludes hooks to allow behavior tweaks for various models. I implemented Yahoo!
+  Web Search and Sponsored Ads and integrated it with our site search support. I made broad
+  improvements to our Brightcove video import scripts using celery and memcached. I also gave talks on
+  \href{http://redlinernotes.com/docs/talks/opa.html}{``Programmer Archaeology''},
   \href{http://redlinernotes.com/docs/talks/wosw.html}{the Economics of Open Source}, and
   \href{http://redlinernotes.com/docs/talks/cl-gbu.html}{the Common Lisp programming language}.
 \end{position}
@@ -102,7 +109,7 @@ Atlanta, GA 30309 \hfill {Web:} \url{http://www.redlinernotes.com/} \\
 
 \subsection{Voluntary}
 
-%% Also slideware, romreader, cl-echonest, etc...
+%% Also colorize, etc?
 
 \title{Lead Developer, Maintainer}
 \employer{\href{http://github.com/redline6561/coleslaw}{coleslaw}}
@@ -124,6 +131,16 @@ Atlanta, GA 30309 \hfill {Web:} \url{http://www.redlinernotes.com/} \\
   \href{http://blog.redlinernotes.com/posts/On-Interactive-Retrocomputing.html}{here}.
   There is also a recorded talk on the project and related ideas called
   \href{http://vimeo.com/redline6561/on-programmer-archaeology}{``On Programmer Archaeology''}.
+\end{position}
+
+\title{Lead Developer, Maintainer}
+\employer{\href{http://github.com/redline6561/romreader}{romreader}}
+\dates{October 2011 -- present}
+\begin{position}
+  romreader is an extensible library for reading ROM formats, often used to store
+  binary images for old hardware. It is a small and clean example of Object Orientation
+  in Lisp and the support for original Nintendo ROMs is under 100 lines. It is currently
+  being used in my work-in-progress NES emulator.
 \end{position}
 
 \title{Lead Developer, Maintainer}
@@ -151,12 +168,16 @@ Atlanta, GA 30309 \hfill {Web:} \url{http://www.redlinernotes.com/} \\
   process.
 \end{position}
 
+\pagebreak
+
 \title{Contributor}
 \employer{Miscellaneous}
 \begin{position}
   I have also contributed feature, portability, and documentation patches to:
   \begin{itemize}
     \item{SBCL, the Steel Bank Common Lisp compiler}
+    \item{Vacietis, a C to Common Lisp compiler}
+    \item{cl-github-v3, a Common Lisp Github API binding}
     \item{st-json, a Common Lisp JSON library}
     \item{weblocks, a Common Lisp Web Framework}
     \item{kardboard, a virtual Kanban web app made with Python and Flask}
