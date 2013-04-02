@@ -26,11 +26,11 @@ EOF
 # set up some scripts/hacks that other dotfiles use
 echo "installing hacks and scripts..."
 cd ~/projects; git clone git@github.com:redline6561/hacks.git;
-# cd hacks; crontab cronjobs; cd ~;
 
 # configure the almighty text operating system
 echo "configuring the almighty emacs"
 git clone git@github.com:redline6561/prelude.git;
+cp dotfiles/prelude-modules.el prelude/;
 ln -s ~/projects/prelude ~/.emacs.d;
 
 # grab other random helpers and toys
