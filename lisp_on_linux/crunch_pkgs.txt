@@ -76,3 +76,4 @@ projectm-pulseaudio
 minidlna
 pulseaudio
 pavucontrol
+icedtea-plugin

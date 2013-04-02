@@ -62,7 +62,7 @@ echo "installing luajit..."
 wget -c http://luajit.org/download/LuaJIT-2.0.0.tar.gz;
 tar zxvf LuaJIT*.tar.gz; rm LuaJIT*.tar.gz; mv LuaJIT* luajit;
 cd luajit; make && make install PREFIX=`pwd`; cd ..;
-ln -s luajit/bin/luajit ../luajit;
+ln -s ~/bin/builds/luajit/bin/luajit ../luajit;
 # install quicklisp for sbcl, download all the libs!
 echo "install ALL OF THE QUICKLISP THINGS!"
 sbcl --load /usr/share/cl-quicklisp/quicklisp.lisp;
