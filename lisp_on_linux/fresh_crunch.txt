@@ -1,0 +1,10 @@
+Install Crunchbang, redline user, SSH server, git. Add SSH keys.
+Install from sid/experimental as needed: emacs24, sbcl
+Replace geany with 'emacsclient -c' as needed in .config/openbox/*.xml
+
+mkdir ~/projects; cd ~/projects;
+git clone git@github.com:redline6561/dotfiles.git;
+cd dotfiles/lisp_on_linux; ./crunch_install.sh;
+
+Now copy over any needed files (music, personal docs, etc).
+Setup IRC and the VPN that every US corp desperately loves.
