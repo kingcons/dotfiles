@@ -40,8 +40,8 @@ mkdir ~/bin; cd ~/bin;
 wget -c https://raw.github.com/technomancy/leiningen/stable/bin/lein;
 chmod +x lein && lein; mkdir ~/bin/builds; cd ~/bin/builds;
 # install lambda.txt quotes
-wget -c http://www.gotlisp.com/lambda/lambda.txt; strfile lambda.txt lambda.dat;
-sudo mv lambda.dat /usr/share/games/fortunes/;
+wget -c http://www.gotlisp.com/lambda/lambda.txt; mv lambda.txt lambda;
+strfile lambda; sudo mv lambda* /usr/share/games/fortunes/;
 # install ccl
 echo "installing ccl..."
 svn co http://svn.clozure.com/publicsvn/openmcl/release/1.9/linuxx86/ccl;
@@ -66,6 +66,7 @@ ln -s ~/bin/builds/luajit/bin/luajit ../luajit;
 # install quicklisp for sbcl, download all the libs!
 echo "install ALL OF THE QUICKLISP THINGS!"
 sbcl --load /usr/share/cl-quicklisp/quicklisp.lisp;
+sbcl --eval "(ql:quickload 'quicklisp-slime-helper)"
 sbcl --eval "(progn (map nil 'ql-dist:ensure-installed (ql-dist:provided-releases (ql-dist:dist \"quicklisp\"))) (sb-ext:quit))";
 
 # google+ hangouts
