@@ -76,7 +76,8 @@ sudo dpkg -i google-talkplugin*; rm google-talkplugin*;
 # skype (ugh)
 echo "installing skype... (sorry)"
 wget -c http://download.skype.com/linux/skype-debian_4.1.0.20-1_i386.deb;
-sudo dpkg -i skype-debian*; rm skype-debian*;
+sudo dpkg --add-architecture i386; sudo apt-get update;
+sudo dpkg -i skype-debian*; sudo apt-get install -f; rm skype-debian*;
 
 # install wallpapers?
 # echo "installing personal effects..."
