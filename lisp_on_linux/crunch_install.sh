@@ -69,15 +69,13 @@ sbcl --load /usr/share/cl-quicklisp/quicklisp.lisp;
 sbcl --eval "(ql:quickload 'quicklisp-slime-helper)"
 sbcl --eval "(progn (map nil 'ql-dist:ensure-installed (ql-dist:provided-releases (ql-dist:dist \"quicklisp\"))) (sb-ext:quit))";
 
+# grab my most active lisp projects
+cd ~/quicklisp/local-projects; ./~/projects/dotfiles/get_repos.sh; cd -;
+
 # google+ hangouts
 echo "installing google talk plugin..."
 wget -c https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb;
 sudo dpkg -i google-talkplugin*; rm google-talkplugin*;
-# skype (ugh)
-echo "installing skype... (sorry)"
-wget -c http://download.skype.com/linux/skype-debian_4.1.0.20-1_i386.deb;
-sudo dpkg --add-architecture i386; sudo apt-get update;
-sudo dpkg -i skype-debian*; sudo apt-get install -f; rm skype-debian*;
 
 # install wallpapers?
 # echo "installing personal effects..."
