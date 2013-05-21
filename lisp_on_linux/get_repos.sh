@@ -5,5 +5,5 @@ for repo in "coleslaw" \
             "romreader" \
             "slideware" \
             "trowel"; do
-    git clone git@github.com/redline6561/$repo.git;
+    git clone git@github.com:redline6561/$repo.git;
 done

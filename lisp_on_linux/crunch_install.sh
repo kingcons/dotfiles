@@ -10,18 +10,21 @@ sudo apt-get install `cat crunch_pkgs.txt`; cd ..;
 
 # use them dotfiles!
 echo "installing dotfiles..."
-cp lisp_on_linux/.ssh/config ~/.ssh/; cp .gitconfig ~/;
+cd ..; cp ssh_config ~/.ssh/config; cp .gitconfig ~/;
 cp .Xdefaults ~/; cp .bashrc ~/.bash_aliases; cp .{screen,conkeror}rc ~/;
+
+# Crunchbang doesn't use .xsession
 cat << EOF >> ~/.config/openbox/autostart
 
 # redline's tweaks
+# TODO: this splices in the output of ssh-agent
 eval `ssh-agent`
 set | grep SSH > ~/.ssh/agent.env
 ~/projects/hacks/keyup.sh
 emacs --daemon &
-setxkbmap -option "ctrl:nocaps" &
+setxkbmap -option ctrl:nocaps &
+# setxkbmap -option altwin:swap_lalt_lwin & for apple keyboards
 EOF
-#cp .[^.]* ~/; cp -R lisp_on_linux/.[^.]* ~/;
 
 # set up some scripts/hacks that other dotfiles use
 echo "installing hacks and scripts..."
@@ -48,6 +51,7 @@ svn co http://svn.clozure.com/publicsvn/openmcl/release/1.9/linuxx86/ccl;
 cd ccl; ./lx86cl64 -e "(progn (rebuild-ccl :full t) (quit))"; cd ..;
 ln -s ~/bin/builds/ccl/lx86cl64 ../ccl;
 # install pypy
+# TODO: update to 2.0, unbreak
 echo "installing pypy..."
 wget -c https://bitbucket.org/pypy/pypy/downloads/pypy-2.0-beta1-linux64-libc2.13.tar.bz2;
 tar jxvf pypy*.bz2 pypy; rm pypy*.bz2; mv pypy* pypy;
@@ -70,7 +74,8 @@ sbcl --eval "(ql:quickload 'quicklisp-slime-helper)"
 sbcl --eval "(progn (map nil 'ql-dist:ensure-installed (ql-dist:provided-releases (ql-dist:dist \"quicklisp\"))) (sb-ext:quit))";
 
 # grab my most active lisp projects
-cd ~/quicklisp/local-projects; ./~/projects/dotfiles/get_repos.sh; cd -;
+cd ~/quicklisp/local-projects;
+~/projects/dotfiles/lisp_on_linux/get_repos.sh; cd -;
 
 # google+ hangouts
 echo "installing google talk plugin..."
