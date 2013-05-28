@@ -77,3 +77,6 @@ minidlna
 pulseaudio
 pavucontrol
 icedtea-plugin
+libelf1
+libelf-dev
+nemiver
