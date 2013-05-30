@@ -80,3 +80,4 @@ icedtea-plugin
 libelf1
 libelf-dev
 pandoc
+texlive-latex-extra

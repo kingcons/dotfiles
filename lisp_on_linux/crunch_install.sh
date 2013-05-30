@@ -56,6 +56,11 @@ echo "installing pypy..."
 wget -c https://bitbucket.org/pypy/pypy/downloads/pypy-2.0-beta1-linux64-libc2.13.tar.bz2;
 tar jxvf pypy*.bz2 pypy; rm pypy*.bz2; mv pypy* pypy;
 ln -s ~/bin/builds/pypy/bin/pypy ../pypy;
+# install pharo
+echo "installing pharo..."
+wget -c http://gforge.inria.fr/frs/download.php/32304/Pharo2.0-linux.zip;
+unzip Pharo*.zip; rm Pharo*.zip; mv pharo* pharo;
+ln -s ~/bin/builds/pharo/pharo ../pharo;
 # install factor
 echo "installing factor..."
 wget -c http://downloads.factorcode.org/releases/0.95/factor-linux-x86-64-0.95.tar.gz;
