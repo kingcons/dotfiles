@@ -7,6 +7,7 @@ set -e
 sed -i '' -e's/Geany\ //' ~/.config/openbox/menu.xml
 sed -i '' -e's/geany/emacsclient\ \-c/' ~/.config/openbox/menu.xml
 sed -i '' -e's/geany/emacsclient\ \-c/' ~/.config/openbox/rc.xml
+sed -i '' -e's/A\-F2/W\-r/' ~/.config/openbox.rc.xml
 
 # the mega package install
 echo "updating package cache and performing mega install..."
