@@ -63,6 +63,8 @@ virtualbox
 ack-grep
 texinfo
 texlive
+texlive-xetex
+texlive-latex-extra
 slurm
 dstat
 ttyrec
@@ -77,7 +79,6 @@ icedtea-plugin
 libelf1
 libelf-dev
 pandoc
-texlive-latex-extra
 qjackctl
 youtube-dl
 steam
