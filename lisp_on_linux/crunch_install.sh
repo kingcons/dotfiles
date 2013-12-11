@@ -96,11 +96,6 @@ sudo dpkg -i google-talkplugin*; rm google-talkplugin*;
 wget -O skype-install.deb http://www.skype.com/go/getskype-linux-deb;
 sudo dpkg -i skype-install.deb; sudo apt-get install -f; rm skype-install.deb;
 
-# install steam
-echo "installing steam..."
-git clone https://github.com/GhostSquad57/Steam-Installer-for-Wheezy steam-installer;
-cd steam-installer; sudo dpkg -i steam-debian*.deb; sudo apt-get install -f;
-
 # install renoise
 echo "installing renoise..."
 scp redlinernotes.com:musicware/rns*64*tar.gz .; tar zxvf rns*tar.gz;

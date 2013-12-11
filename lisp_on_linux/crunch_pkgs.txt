@@ -79,5 +79,5 @@ libelf-dev
 pandoc
 texlive-latex-extra
 qjackctl
-realpath
 youtube-dl
+steam
