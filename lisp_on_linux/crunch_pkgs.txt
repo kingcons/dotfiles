@@ -81,3 +81,4 @@ texlive-latex-extra
 qjackctl
 youtube-dl
 steam
+apt-file
