@@ -83,3 +83,4 @@ qjackctl
 youtube-dl
 steam
 apt-file
+pulseaudio-module-jack

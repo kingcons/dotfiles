@@ -18,14 +18,16 @@ sudo apt-get install `cat crunch_pkgs.txt`;
 # use them dotfiles!
 echo "installing dotfiles..."
 cd ..;
-cp ssh_config ~/.ssh/config; cp .gitconfig ~/;
-cp .Xdefaults ~/; cp .bashrc ~/.bash_aliases; cp .{screen,conkeror}rc ~/;
+cp ssh_config ~/.ssh/config; cp .gitconfig ~/; cp .Xdefaults ~/;
+cp .bashrc ~/.bash_aliases; cp .{asound,screen,conkeror}rc ~/;
+cp default.pa ~/.pulse/;
 
 # Crunchbang doesn't use .xsession
 cat << EOF >> ~/.config/openbox/autostart
 
 # redline's tweaks
 # TODO: this splices in the output of ssh-agent
+jackd -d alsa
 eval `ssh-agent`
 set | grep SSH > ~/.ssh/agent.env
 ~/projects/hacks/keyup.sh
