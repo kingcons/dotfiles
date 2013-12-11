@@ -1,3 +1,5 @@
+emacs24
+sbcl
 cl-quicklisp
 iotop
 rar
@@ -66,18 +68,15 @@ dstat
 ttyrec
 nethack-el
 tree
-mencoder
 gparted
 nzbget
 par2
 rtorrent
 sshfs
-projectm-pulseaudio
-minidlna
-pulseaudio
-pavucontrol
 icedtea-plugin
 libelf1
 libelf-dev
 pandoc
 texlive-latex-extra
+qjackctl
+realpath
