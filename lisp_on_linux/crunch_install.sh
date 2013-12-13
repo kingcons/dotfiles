@@ -91,6 +91,11 @@ sbcl --eval "(progn (map nil 'ql-dist:ensure-installed (ql-dist:provided-release
 cd ~/quicklisp/local-projects;
 ~/projects/dotfiles/lisp_on_linux/get_repos.sh; cd -;
 
+# deadbeef is best audio player evar
+echo "installing deadbeef..."
+wget -c http://sourceforge.net/projects/deadbeef/files/deadbeef-static_0.6.0-4_x86_64.tar.bz2/download -O deadbeef.deb;
+sudo dpkg -i deadbeef.deb; rm deadbeef.deb;
+
 # google+ hangouts/skype
 echo "installing skype and google talk..."
 wget -c https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb;
