@@ -84,3 +84,6 @@ youtube-dl
 steam
 apt-file
 pulseaudio-module-jack
+quodlibet
+quodlibet-plugins
+exfalso
