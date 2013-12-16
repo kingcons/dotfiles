@@ -5,5 +5,7 @@ mkdir ~/projects; cd ~/projects;
 git clone git@github.com:redline6561/dotfiles.git;
 cd dotfiles/lisp_on_linux; ./crunch_install.sh;
 
+Fire up qjackctl and add this to execute script after startup:
+  pactl load-module module-jack-sink channels=2; pactl load-module module-jack-source channels=2;pacmd set-default-sink jack_out
 Now copy over any needed files (music, personal docs, etc).
 Setup IRC and the VPN that every US corp desperately loves.

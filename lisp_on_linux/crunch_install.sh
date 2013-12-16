@@ -3,31 +3,29 @@
 
 set -e
 
-# replace geany with emacs as default text editor
-sed -i '' -e's/Geany\ //' ~/.config/openbox/menu.xml
-sed -i '' -e's/geany/emacsclient\ \-c/' ~/.config/openbox/menu.xml
-sed -i '' -e's/geany/emacsclient\ \-c/' ~/.config/openbox/rc.xml
-sed -i '' -e's/A\-F2/W\-r/' ~/.config/openbox.rc.xml
-
 # the mega package install
 echo "updating package cache and performing mega install..."
 sudo dpkg --add-architecture i386;
 sudo apt-get update; sudo apt-get upgrade;
 sudo apt-get install `cat crunch_pkgs.txt`;
 
+# replace geany with emacs as default text editor
+sed -i '' -e's/Geany\ //' ~/.config/openbox/menu.xml
+sed -i '' -e's/geany/emacsclient\ \-c/' ~/.config/openbox/menu.xml
+sed -i '' -e's/geany/emacsclient\ \-c/' ~/.config/openbox/rc.xml
+sed -i '' -e's/A\-F2/W\-r/' ~/.config/openbox.rc.xml
+
 # use them dotfiles!
 echo "installing dotfiles..."
 cd ..;
 cp ssh_config ~/.ssh/config; cp .gitconfig ~/; cp .Xdefaults ~/;
-cp .bashrc ~/.bash_aliases; cp .{asound,screen,conkeror}rc ~/;
-cp default.pa ~/.pulse/;
+cp .bashrc ~/.bash_aliases; cp .{screen,conkeror}rc ~/;
 
 # Crunchbang doesn't use .xsession
 cat << EOF >> ~/.config/openbox/autostart
 
 # redline's tweaks
 # TODO: this splices in the output of ssh-agent
-jackd -d alsa
 eval `ssh-agent`
 set | grep SSH > ~/.ssh/agent.env
 ~/projects/hacks/keyup.sh
