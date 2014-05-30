@@ -1,6 +1,7 @@
 alias ls='ls --color=auto'
 alias ed='emacsclient -c'
 alias enox='emacs -nw'
+alias embedfonts='gs -o embedded-fonts.pdf -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress'
 alias fixusb='sudo /sbin/udevd --daemon'
 alias fixjack='pactl load-module module-jack-sink channels=2; pactl load-module module-jack-source channels=2;pacmd set-default-sink jack_out'
 alias mounters='lsof /media/RedStorage/'
