@@ -1,4 +1,0 @@
-ListenAddress 0.0.0.0
-ChallengeResponseAuthentication no
-AllowUsers redline
-PermitRootLogin no

@@ -1,4 +1,0 @@
-chdir /home/redline/projects/
-
-screen emacs -nw
-screen sbcl --userinit /home/redline/.sbclrc --load /home/redline/webapps/init.lisp

@@ -1,6 +1,0 @@
-#!/bin/bash
-#
-# /etc/rc.local: Local multi-user startup script.
-#
-
-su redline -c 'screen -d -m -S screenslime -c /home/redline/webapps/screenrc'
