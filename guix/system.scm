@@ -65,10 +65,12 @@
  (packages
   (append
    (map specification->package
-        '("stumpwm-with-slynk"
+        '("font-fira-code"
+          "font-dejavu"
           "nss-certs"
           "openssh"
           "polybar"
+          "stumpwm"
           "xterm"
           "gvfs"
           "git"))

@@ -1,0 +1,9 @@
+(specifications->manifest
+ '("nautilus"
+   "neofetch"
+   "icecat"
+   "nyxt"
+   "htop"
+   "lsof"
+   "wget"
+   "vlc"))

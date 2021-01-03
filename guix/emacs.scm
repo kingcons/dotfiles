@@ -4,7 +4,7 @@
    "emacs-use-package"
    ;; Do a bit of theming and use a proper font
    "emacs-zenburn-theme"
-   "font-dejavu"
+   "font-fira-code"
    ;; Improve the core interface
    "emacs-avy"
    "emacs-ace-window"

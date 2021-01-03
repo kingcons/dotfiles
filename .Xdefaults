@@ -1,15 +1,8 @@
-Xft.dpi: 100
-Xft.antialias: true
-Xft.hinting: true
-Xft.hintstyle: hintfull
-Xft.rgba: rgb
-
-xterm*faceName: terminus-font
-xterm*faceSize: 8
-
-urxvt.font: xft:inconsolata:pixelsize=14
-urxvt.termName: rxvt
-urxvt.scrollBar: false
-urxvt.xftAntialias: true
-
-emacs.font: Inconsolata-12
+xterm*termName: xterm-256color
+xterm*eightBitInput: true
+xterm*metaSendsEscape: true
+xterm*faceName: DejaVu Sans Mono
+xterm*faceSize: 10
+xterm*background: #3a3a3a
+xterm*foreground: #dcdccc
+xterm*cursorColor: #dcdccc
