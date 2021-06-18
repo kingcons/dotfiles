@@ -1,9 +1,18 @@
 (specifications->manifest
- '("nautilus"
+ '("password-store"
+   "supercollider"
+   "pinentry-tty"
+   "nss-certs"
+   "syncthing"
+   "nautilus"
    "neofetch"
    "icecat"
+   "screen"
+   "isync"
+   "gnupg"
    "nyxt"
    "htop"
    "lsof"
    "wget"
-   "vlc"))
+   "vlc"
+   "git"))

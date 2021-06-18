@@ -3,6 +3,8 @@
 
 (use-modules
  (gnu)
+ (gnu system nss)
+ (gnu services avahi)
  (nongnu packages linux)
  (guix channels)
  (guix inferior)
@@ -66,11 +68,14 @@
   (append
    (map specification->package
         '("font-fira-code"
+          "font-awesome"
           "font-dejavu"
           "nss-certs"
           "openssh"
           "polybar"
           "stumpwm"
+          "avahi"
+          "dunst"
           "xterm"
           "gvfs"
           "git"))
@@ -80,4 +85,5 @@
    (list (set-xorg-configuration
           (xorg-configuration
            (keyboard-layout keyboard-layout))))
-   %desktop-services)))
+   %desktop-services))
+ (name-service-switch %mdns-host-lookup-nss))

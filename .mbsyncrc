@@ -1,0 +1,42 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User redline6561@gmail.com
+Pass ?
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Subfolders Verbatim
+Path ~/.mail/gmail
+Inbox ~/.mail/gmail/Inbox
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+Create Both
+SyncState *
+
+IMAPAccount kingcons
+Host imap.migadu.com
+User brit@kingcons.io
+Pass ?
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore kingcons-remote
+Account kingcons
+
+MaildirStore kingcons-local
+Subfolders Verbatim
+Path ~/.mail/kingcons
+Inbox ~/.mail/kingcons/Inbox
+
+Channel kingcons
+Master :kingcons-remote:
+Slave :kingcons-local:
+Create Both
+SyncState *
