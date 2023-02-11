@@ -13,19 +13,7 @@
 (use-service-modules desktop networking ssh xorg)
 
 (operating-system
- (kernel
-  (let* ((channels
-          (list (channel
-                 (name 'nonguix)
-                 (url "https://gitlab.com/nonguix/nonguix")
-                 (commit "e25426835e77dbae768f0c8e07d5d69125e82800"))
-                (channel
-                 (name 'guix)
-                 (url "https://git.savannah.gnu.org/git/guix.git")
-                 (commit "947aed127a48ef41bab3bdbb4252eb2a56dafc10"))))
-         (inferior
-          (inferior-for-channels channels)))
-    (first (lookup-inferior-packages inferior "linux" "5.10.4"))))
+ (kernel linux)
  (firmware (cons* iwlwifi-firmware
                   %base-firmware))
  (locale "en_US.utf8")
@@ -71,6 +59,7 @@
           "font-awesome"
           "font-dejavu"
           "nss-certs"
+          "nss-mdns"
           "openssh"
           "polybar"
           "stumpwm"

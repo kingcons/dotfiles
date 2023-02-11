@@ -4,19 +4,22 @@
    "emacs-use-package"
    ;; Do a bit of theming and use a proper font
    "emacs-zenburn-theme"
+   "emacs-mood-line"
    "font-dejavu"
    ;; Improve the core interface
-   "emacs-selectrum"
+   "emacs-vertico"
    "emacs-orderless"
    "emacs-embark"
    "emacs-consult"
-   "emacs-company"
+   "emacs-corfu"
    "emacs-avy"
    "emacs-expand-region"
    "emacs-ws-butler"
    "emacs-editorconfig"
    ;; Support viewing common documents
    "emacs-pdf-tools"
+   ;; Support LSP servers for nicer developer experience
+   "emacs-eglot"
    ;; Add the world's best git porcelain
    "emacs-magit"
    ;; "emacs-forge"
@@ -36,12 +39,11 @@
    "emacs-sly-macrostep"
    "emacs-sly-quicklisp"
    "emacs-extempore-mode"
+   ;; Language helpers - ocaml
+   ;; "emacs-utop"
    ;; Language helpers - ruby
    "emacs-rspec"
    "emacs-robe"
-   ;; Add support for controlling mpd
-   "emacs-libmpdel"
-   "emacs-mpdel"
    ;; Add support for managing guix
    "emacs-guix"
    ;; Add support for managing pass
