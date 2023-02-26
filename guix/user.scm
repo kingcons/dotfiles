@@ -3,6 +3,7 @@
    "supercollider"
    "pinentry-tty"
    "nss-certs"
+   "font-hack"
    "syncthing"
    "nautilus"
    "neofetch"

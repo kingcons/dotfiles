@@ -1,5 +1,6 @@
 (specifications->manifest
  '("gcc-toolchain"
+   "graphviz"
    "gdb"
    "make"
    "sdl2"
