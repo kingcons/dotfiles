@@ -2,7 +2,11 @@
  '("gcc-toolchain"
    "gdb"
    "make"
-   "extempore"
+   "sdl2"
+   "ocaml"
+   "ocaml-utop"
    "mit-scheme"
+   "racket"
+   "guile"
    "sbcl"
    "ccl"))

@@ -1,0 +1,41 @@
+;;; The following lines added by ql:add-to-init-file:
+#-quicklisp
+(let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                       (user-homedir-pathname))))
+  (when (probe-file quicklisp-init)
+    (load quicklisp-init)))
+
+;; Fix the CFFI search path for foreign libraries on Guix
+(when (probe-file "/gnu/store")
+  (defun fix-guix-library-path ()
+    (let ((search-path (find-symbol "*FOREIGN-LIBRARY-DIRECTORIES*" "CFFI"))
+          (explode-path (find-symbol "EXPLODE-PATH-ENVIRONMENT-VARIABLE" "CFFI")))
+      (setf (symbol-value search-path)
+            (funcall explode-path "LIBRARY_PATH")))))
+
+(defun new-project (name &key
+                           (srht-user "kingcons")
+                           (projects-dir "projects")
+                           (author "Brit Butler")
+                           (license "MIT")
+                           (include-copyright nil)
+                           (depends-on '(:alexandria :serapeum :mgl-pax))
+                           (template-directory "~/.lisp-template/template/"))
+  (unless (find-package :quickproject)
+    (ql:quickload :quickproject)) ; Quickproject transitively loads cl-fad
+  (let* ((params (find-symbol "*TEMPLATE-PARAMETER-FUNCTIONS*" "QUICKPROJECT"))
+         (builder (find-symbol "MAKE-PROJECT" "QUICKPROJECT"))
+         (dir-ify (find-symbol "PATHNAME-AS-DIRECTORY" "CL-FAD"))
+         (ql-path (merge-pathnames name (first ql:*local-project-directories*)))
+         (pathname (funcall (find-symbol "MERGE-PATHNAMES-AS-DIRECTORY" "CL-FAD")
+                            (user-homedir-pathname)
+                            (funcall dir-ify projects-dir)
+                            (funcall dir-ify name))))
+    (push (lambda () (list :srht-user srht-user)) (symbol-value params))
+    (funcall builder pathname
+             :author author
+             :license license
+             :include-copyright include-copyright
+             :depends-on depends-on
+             :template-directory template-directory)
+    (uiop:run-program (list "ln" "-sf" (namestring pathname) (namestring ql-path)))))

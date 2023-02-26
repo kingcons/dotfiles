@@ -38,7 +38,6 @@
    "emacs-macrostep"
    "emacs-sly-macrostep"
    "emacs-sly-quicklisp"
-   "emacs-extempore-mode"
    ;; Language helpers - ocaml
    ;; "emacs-utop"
    ;; Language helpers - ruby
