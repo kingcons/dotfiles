@@ -20,6 +20,7 @@
    "emacs-pdf-tools"
    ;; Support LSP servers for nicer developer experience
    "emacs-eglot"
+   "emacs-project-x"
    ;; Add the world's best git porcelain
    "emacs-magit"
    ;; "emacs-forge"
