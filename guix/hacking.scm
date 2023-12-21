@@ -1,13 +1,14 @@
 (specifications->manifest
  '("gcc-toolchain"
-   "graphviz"
-   "gdb"
    "make"
-   "sdl2"
+   "gdb"
+   "man-pages"
+   "rust"
    "ocaml"
    "ocaml-utop"
    "mit-scheme"
    "racket"
    "guile"
+   "loko"
    "sbcl"
    "ccl"))

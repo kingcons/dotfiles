@@ -33,12 +33,10 @@
    "emacs-add-node-modules-path"
    "emacs-lsp-mode"
    ;; Language helpers - lisp
-   "emacs-sly"
+   "emacs-slime"
    "emacs-geiser"
    "emacs-paredit"
    "emacs-macrostep"
-   "emacs-sly-macrostep"
-   "emacs-sly-quicklisp"
    ;; Language helpers - ocaml
    ;; "emacs-utop"
    ;; Language helpers - ruby
