@@ -1,4 +1,4 @@
-%%%% Compile with: texi2pdf resume.tex ## requires texlive,
+%%%% Compile with: texi2pdf resume.tex ## requires texlive (and maybe texinfo)
 
 \documentclass[margintitle,line]{res}
 \usepackage[a4paper,left=1.0cm,right=4.5cm,top=1.5cm,bottom=1.5cm]{geometry}
@@ -57,13 +57,34 @@
 
 \section{Contact Information}
 
-404-718-9378 \hfill {E-mail:} \href{mailto:brit@kingcons.io}{\nolinkurl{brit@kingcons.io}} \\
-866 Woodland Ave SE \hfill {Code:} \url{https://github.com/kingcons/} \\
-Atlanta, GA 30316 \hfill {Web:} \url{https://blog.kingcons.io/} \\
+404-718-9378 \hfill \href{mailto:brit@kingcons.io}{\nolinkurl{brit@kingcons.io}} \\
+866 Woodland Ave SE \hfill \url{https://github.com/kingcons/} \\
+Atlanta, GA 30316 \hfill \url{https://blog.kingcons.io/} \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{\mbox{Work Experience}}
+\section{Work Experience}
+
+\title{Engineering Manager}
+\employer{\llap{Calendly}}
+\dates{January 2022 -- May 2024}
+\begin{position}
+  I was the EM for 3 squads totaling a dozen direct reports, hiring half of those engineers to scale the squads.
+  I oversaw the delivery of work such as our Calendly Analytics product, Self-Service Data Deletion, Activity Log, Calendar Service extraction, and Identity Service extraction.
+  I consistently advocated for addressing tech debt whether through reviving the App Design guild, talking with product about sunsetting our Teams feature, or driving work to simplify the ownership model around our core data type.
+  I improved internal communication to empower engineers, from a living document in Confluence for tracking Feature Ownership, to recurring weekly meetings with myself and Staff Engineers to unblock squads on Service Extraction, to running an annual Advent of Code channel encouraging engineers to have fun solving problems and trying new design patterns.
+\end{position}
+
+\title{Senior Software Engineer}
+\employer{\llap{Calendly}}
+\dates{September 2019 -- December 2021}
+\begin{position}
+  I wrote implementation plans and guided development for features such as the Share Modal, One-off Meetings, Double Booking Rules, and Reserved Times.
+  I founded the Flamingo squad and acted as Team lead, running all agile ceremonies, coordinating with the PM around estimates and roadmap decisions, and coordinating the division of work on the squad.
+  I participated in over 100 interviews and hiring panels as the org scaled.
+  I served as an onboarding buddy to multiple junior and mid-level engineers.
+  I organized and ran a Book Club to learn Rust that led to a half dozen engineers gaining proficiency.
+\end{position}
 
 \title{Lead Instructor}
 \employer{\llap{Flatiron School}}
@@ -115,48 +136,6 @@ Atlanta, GA 30316 \hfill {Web:} \url{https://blog.kingcons.io/} \\
   storing report attributes in SQL shards.
 \end{position}
 
-\title{Software Engineer}
-\employer{\llap{CMGdigital}}
-\dates{May 2011 -- September 2012}
-\begin{position}
-  I worked on a 160k SLOC Python/Django project to serve Newspaper,
-  TV, and Radio publishers. I had particular focuses on admin
-  customization and data migration. I oversaw the migration of over
-  100K users from multiple markets to our new CMS.
-  I made broad improvements to our Brightcove video import
-  scripts using celery and memcached. I also gave talks on
-  \href{http://redlinernotes.com/docs/talks/opa.html}{``Programmer
-    Archaeology''} and
-  \href{http://redlinernotes.com/docs/talks/wosw.html}{the Economics
-    of Open Source}.
-\end{position}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Education}
-
-\title{B.Sc. in Computer Science}
-\employer{\llap{Southern Polytechnic State University}}
-\dates{January 2009 -- May 2011}
-\begin{position}
-  I transferred to SPSU in August 2007 to pursue Computer Science.
-  After the first semester, I took a year off to work full-time and self-study.
-  I returned in January 2009 and graduated in May 2011.
-\end{position}
-
-\title{Self-Study}
-\dates{January 2008 -- August 2008}
-\begin{position}
-  After 3 years at Oglethorpe University studying literature
-  I decided to self-study programming while working full-time.
-  I did this throughout 2008 and have written about it, notably
-  \href{https://blog.kingcons.io/posts/Leaving-College-to-Leverage-Compulsion.html}{here}
-  and
-  \href{https://blog.kingcons.io/posts/Spring-2008-Schedule-and-Syllabus.html}{here}.
-  Example work from self-study can be found
-  \href{https://blog.kingcons.io/posts/SICP-Section-13.html}{here}.
-\end{position}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
@@ -169,8 +148,38 @@ Atlanta, GA 30316 \hfill {Web:} \url{https://blog.kingcons.io/} \\
 \subsection{Passion Projects}
 
 \title{Author}
+\employer{\href{https://kingcons.github.io/advent-of-code/}{advent-of-code}}
+\dates{2021 -- 2023}
+\begin{position}
+  For the past several years, I have enjoyed participating in Advent of Code and
+  organizing a group internal to my job to work through problems as well.
+
+  On an group level, the purpose is not to compete but to remember the joy of solving
+  tricky problems and encourage discussion among engineers about different approaches.
+
+  On an individual level, I enjoy writing clean, readable solutions, with automated
+  benchmarking and documentation generation shown in the site linked above.
+\end{position}
+
+\title{Author}
+\employer{\href{https://github.com/kingcons/rawbones}{rawbones}}
+\dates{May 2019 -- December 2019}
+\begin{position}
+  Rawbones is an NES emulator written in ReasonML and compiled to Javascript. It
+  currently powers a React-based frontend (also in ReasonML) written in collaboration
+  with my dear friend \href{https://jdabbs.com}{James Dabbs}. That frontend is called
+  \href{https://github.com/jamesdabbs/epiderNES}{epiderNES} and can be seen in action
+  \href{https://kingcons.io/epiderNES/}{here}.
+
+  I later implemented another \href{https://github.com/kingcons/clones}{NES emulator in Common Lisp} incorporating some
+  lessons from Rawbones around how synchronization between the CPU and PPU was
+  performed. I streamed most of the implementation work on Twitch to about 60
+  folks and have recordings that I need to upload.
+\end{position}
+
+\title{Author}
 \employer{\href{https://github.com/kingcons/study-group}{study-group}}
-\dates{July 2018 -- Present}
+\dates{July 2018 -- November 2018}
 \begin{position}
   I have organized and led an \href{https://sarabander.github.io/sicp/}{SICP} study group for
   myself and former coworkers and students. In addition to providing code feedback,
@@ -178,19 +187,8 @@ Atlanta, GA 30316 \hfill {Web:} \url{https://blog.kingcons.io/} \\
 \end{position}
 
 \title{Author}
-\employer{\href{https://github.com/kingcons/nescavation}{nescavation}}
-\dates{August 2016 -- September 2016}
-\begin{position}
-  A NES simulator written during a semester break to practice a bigger project
-  using ES6 classes and modules. I stalled out working on the graphics card
-  when classes resumed. However, the light exposure to Canvas and requestAnimationFrame
-  was valuable and I reused the decomposition of CPU opcode metadata from instruction
-  definitions in a more recent hobby project called ``clones''.
-\end{position}
-
-\title{Author}
 \employer{\href{https://github.com/kingcons/salty-runbooks}{salty-runbooks}}
-\dates{November 2014 -- Present}
+\dates{November 2014 -- September 2017}
 \begin{position}
   A set of Ansible playbooks to better familiarize myself with configuration management
   and help automate the setup and administration of my personal servers. It includes roles
@@ -205,10 +203,8 @@ Atlanta, GA 30316 \hfill {Web:} \url{https://blog.kingcons.io/} \\
 \begin{position}
   coleslaw is static blogware a la Jekyll, written in Common Lisp. It
   supports publishing via git push, markdown with code highlighting extensions,
-  extensible content types, theming, and various functionality through plugins
-  all in under 1000 lines of code. It is also a good example of Object Oriented
-  Programming in Lisp. Since ``you are what you document'' there is a thorough
-  \href{https://github.com/kingcons/coleslaw/blob/master/docs/hacking.md}{Hacker's Guide to Coleslaw}
+  extensible content types, theming, and plugins for additional functionality.
+  It is also a good example of Object Oriented Programming in Lisp. Since ``you are what you document'' there is a thorough  \href{https://github.com/kingcons/coleslaw/blob/master/docs/hacking.md}{Hacker's Guide to Coleslaw}
   explaining its internal design in addition to documentation of the Plugin API
   and extensions.
 \end{position}
@@ -226,18 +222,14 @@ Atlanta, GA 30316 \hfill {Web:} \url{https://blog.kingcons.io/} \\
   \href{https://vimeo.com/redline6561/on-programmer-archaeology}{``On Programmer Archaeology''}.
 \end{position}
 
-\title{Contributor}
-\employer{Miscellaneous}
-\dates{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education}
+
+\title{B.Sc. in Computer Science}
+\employer{\llap{Southern Polytechnic State University}}
+\dates{January 2009 -- May 2011}
 \begin{position}
-  I have also contributed feature, portability, and documentation patches to:
-  \begin{itemize}
-    \item{Spacemacs, A community driven Emacs distribution}
-    \item{Vacietis, a C to Common Lisp compiler}
-    \item{st-json, a Common Lisp JSON library}
-    \item{kardboard, a virtual Kanban web app made with Python and Flask}
-    \item{pybrightcove, a Python interface to Brightcove's API}
-  \end{itemize}
 \end{position}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,10 +254,6 @@ by the implementation of dynamic, reflective languages such as Lisp and Smalltal
 and the careful interplay between compiler and runtime to make them fast.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{References}
-
-Available on request.
 
 \end{resume}
 \end{document}
